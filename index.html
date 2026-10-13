@@ -1,0 +1,5238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Andhra Kisan - Together for Prosperous Farms and Stronger Andhra</title>
+
+    <!-- Google Fonts: Crimson Pro (Display & Headings) & Plus Jakarta Sans (Body & Interface) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <!-- Telugu Fonts: Ponnala (Brand/Nav/Buttons), Sree Krushnadevaraya (Headings/Card Points), Ramabhadra (Body/Content) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Ponnala&family=Ramabhadra&family=Sree+Krushnadevaraya&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        /* =====================================
+           Theme Variables & Reset (modeled after my dealz 365)
+           ===================================== */
+        :root {
+            /* Typography System */
+            --font-display: 'Crimson Pro', Georgia, serif;
+            --font-body: 'Plus Jakarta Sans', 'DM Sans', sans-serif;
+            --font-family: var(--font-body);
+
+            --color-navy: #0d2847;
+            --color-navy-dark: #07192f;
+            --color-green: #15803d;
+            --color-green-dark: #0f622e;
+            --color-green-light: #22c55e;
+            --color-green-accent: #167859;
+            --color-green-card: #0d6838;
+            --color-blue-accent: #0284c7;
+            --color-border: #e2e8f0;
+            --color-text-dark: #1e293b;
+            --color-text-muted: #475569;
+            --bg-light: #f8fafc;
+            --shadow-subtle: 0 2px 10px rgba(0, 0, 0, 0.05);
+            --shadow-card: 0 10px 30px rgba(13, 104, 56, 0.18);
+            --shadow-elevated: 0 14px 35px rgba(0, 0, 0, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+
+        /* 1. Display & Headings (--font-display) */
+        h1,
+        h2,
+        h3,
+        h4,
+        .heading-serif,
+        .font-serif {
+            font-family: var(--font-display);
+        }
+
+        /* 2. Body & Interface Text (--font-body) */
+        body,
+        p,
+        input,
+        button,
+        select,
+        label,
+        .font-sans {
+            font-family: var(--font-body);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+        }
+
+        html,
+        body {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: #f8fafc;
+            color: var(--color-text-dark);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* =====================================
+           Telugu Typography System (when lang="te" or body.lang-te)
+           ===================================== */
+        html[lang="te"],
+        body.lang-te {
+            --font-display: 'Sree Krushnadevaraya', Georgia, serif;
+            --font-body: 'Ramabhadra', 'Plus Jakarta Sans', sans-serif;
+            font-family: var(--font-body);
+        }
+
+        /* 1. Ponnala: Main brand naming, navigation bar, and buttons */
+        body.lang-te .brand-andhra,
+        body.lang-te .brand-kisan,
+        body.lang-te .brand-tagline,
+        body.lang-te .footer-brand-tagline,
+        body.lang-te .nav-link,
+        body.lang-te .nav-link span,
+        body.lang-te .nav-dropdown .dropdown-item,
+        body.lang-te .nav-login-link,
+        body.lang-te .nav-login-link span,
+        body.lang-te .lang-switch-btn,
+        body.lang-te .btn-register,
+        body.lang-te .btn-register span,
+        body.lang-te .btn-register-mobile,
+        body.lang-te .btn-register-mobile span,
+        body.lang-te .btn-get-started,
+        body.lang-te .btn-get-started span,
+        body.lang-te .btn-watch-video,
+        body.lang-te .btn-watch-video span,
+        body.lang-te .btn-sell-now,
+        body.lang-te .btn-sell-now span,
+        body.lang-te .btn-register-farmer,
+        body.lang-te .btn-register-farmer span,
+        body.lang-te .footer-newsletter-btn,
+        body.lang-te .footer-nav-link,
+        body.lang-te button {
+            font-family: 'Ponnala', cursive, sans-serif !important;
+        }
+
+        body.lang-te .brand-andhra,
+        body.lang-te .brand-kisan {
+            line-height: 1.25;
+        }
+
+        /* 2. Sree Krushnadevaraya: Headings, subheadings, and one-liner card points */
+        body.lang-te h1,
+        body.lang-te h2,
+        body.lang-te h3,
+        body.lang-te h4,
+        body.lang-te h5,
+        body.lang-te h6,
+        body.lang-te .hero-title,
+        body.lang-te .hero-subtitle,
+        body.lang-te .section-title,
+        body.lang-te .section-subtitle,
+        body.lang-te .feature-text,
+        body.lang-te .feature-text font,
+        body.lang-te .feature-text span,
+        body.lang-te .category-card-label,
+        body.lang-te .category-card-label font,
+        body.lang-te .mission-line-primary,
+        body.lang-te .mission-line-sub,
+        body.lang-te .empower-banner-title,
+        body.lang-te .empower-banner-sub,
+        body.lang-te .step-title,
+        body.lang-te .card-title,
+        body.lang-te .card-subtitle,
+        body.lang-te .crop-name,
+        body.lang-te .price-val,
+        body.lang-te .stat-number,
+        body.lang-te .stat-label,
+        body.lang-te .footer-col-title {
+            font-family: 'Sree Krushnadevaraya', Georgia, serif !important;
+            letter-spacing: normal;
+        }
+
+        /* 3. Ramabhadra: Page content such as paragraphs and others */
+        body.lang-te p,
+        body.lang-te .step-desc,
+        body.lang-te .card-desc,
+        body.lang-te .app-desc,
+        body.lang-te .footer-about-text,
+        body.lang-te .footer-bottom-text,
+        body.lang-te .testimonial-text,
+        body.lang-te .mission-desc,
+        body.lang-te input,
+        body.lang-te textarea,
+        body.lang-te select,
+        body.lang-te label {
+            font-family: 'Ramabhadra', 'Plus Jakarta Sans', sans-serif !important;
+        }
+
+        /* =====================================
+           Navbar Outer Wrapper (Sticky)
+           ===================================== */
+        .navbar-wrapper {
+            background-color: #ffffff;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            height: 72px;
+            padding: 0 40px;
+            width: 100%;
+            border-bottom: 1px solid #f1f5f9;
+        }
+
+        .navbar {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+        }
+
+        /* Brand Section (Uniform Navbar Height) */
+        .brand-tab-wrapper {
+            position: relative;
+            display: flex;
+            align-items: center;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: transparent;
+            flex-shrink: 0;
+        }
+
+        .brand-tab-wrapper::before {
+            display: none;
+        }
+
+        .brand-container {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            gap: 12px;
+            flex-shrink: 0;
+            height: 100%;
+        }
+
+        .brand-logo {
+            height: 44px;
+            width: auto;
+            object-fit: contain;
+            transition: transform 0.2s ease;
+            flex-shrink: 0;
+        }
+
+        .brand-container:hover .brand-logo {
+            transform: scale(1.03);
+        }
+
+        .brand-text-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .brand-title-stacked {
+            display: flex;
+            flex-direction: row;
+            align-items: baseline;
+            gap: 5px;
+            line-height: 1;
+            white-space: nowrap;
+        }
+
+        .brand-andhra {
+            font-size: 21px;
+            font-weight: 800;
+            color: #16a34a;
+            letter-spacing: -0.4px;
+            line-height: 1.1;
+        }
+
+        .brand-kisan {
+            font-size: 21px;
+            font-weight: 800;
+            color: #0274b3;
+            letter-spacing: -0.4px;
+            line-height: 1.1;
+        }
+
+        .brand-tagline {
+            font-size: 9.5px;
+            font-weight: 600;
+            color: #64748b;
+            letter-spacing: 0.15px;
+            margin-top: 3px;
+            white-space: nowrap;
+            line-height: 1.2;
+            display: block;
+        }
+
+        .brand-tab-curve {
+            display: none;
+        }
+
+        /* =====================================
+           Navbar Menu Links (Matching Mock Image)
+           ===================================== */
+        .nav-menu {
+            display: flex;
+            align-items: center;
+            list-style: none;
+            gap: 28px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-item {
+            position: relative;
+        }
+
+        .nav-link {
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 600;
+            color: var(--color-navy);
+            transition: color 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 6px 0;
+            position: relative;
+        }
+
+        .nav-link:hover {
+            color: var(--color-green);
+        }
+
+        /* Active State with Green Underline (Home) */
+        .nav-link.active {
+            color: var(--color-green);
+            font-weight: 700;
+        }
+
+        .nav-link.active::after {
+            content: '';
+            position: absolute;
+            bottom: -6px;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background-color: var(--color-green);
+            border-radius: 2px;
+        }
+
+        .nav-chevron {
+            font-size: 11px;
+            transition: transform 0.2s ease;
+        }
+
+        .nav-item.has-dropdown {
+            position: relative;
+        }
+
+        .nav-item.has-dropdown>.nav-link {
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .nav-item.has-dropdown.open .nav-chevron {
+            transform: rotate(180deg);
+        }
+
+        /* Dropdown Menu for Services */
+        .nav-dropdown {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e2e8f0;
+            min-width: 230px;
+            padding: 8px 0;
+            display: none;
+            z-index: 1050;
+            animation: fadeInDrop 0.2s ease;
+        }
+
+        @keyframes fadeInDrop {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .nav-item.has-dropdown.open .nav-dropdown {
+            display: block;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 10px 18px;
+            color: var(--color-navy);
+            font-size: 13.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background-color 0.15s, color 0.15s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f0fdf4;
+            color: var(--color-green);
+        }
+
+        /* =====================================
+           Right Action Items (Search, Login, Register)
+           ===================================== */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            flex-shrink: 0;
+        }
+
+        /* Square Rounded Search Button */
+        .nav-search-btn {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            border: 1.5px solid #e2e8f0;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-navy);
+            font-size: 14.5px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+        }
+
+        .nav-search-btn:hover {
+            border-color: var(--color-green);
+            color: var(--color-green);
+            background-color: #f0fdf4;
+            transform: translateY(-1px);
+        }
+
+        /* Login Link with User Icon */
+        .nav-login-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-navy);
+            font-size: 14.5px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        .nav-login-link i {
+            font-size: 17px;
+        }
+
+        .nav-login-link:hover {
+            color: var(--color-green);
+        }
+
+        /* Register Solid Green Button */
+        .btn-register {
+            background-color: var(--color-green);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 10px 24px;
+            border-radius: 8px;
+            font-size: 14.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 3px 10px rgba(21, 128, 61, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-register:hover {
+            background-color: var(--color-green-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 5px 15px rgba(21, 128, 61, 0.35);
+        }
+
+        /* Mobile Hamburger Toggle */
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 20px;
+            color: var(--color-navy);
+            cursor: pointer;
+            padding: 6px;
+        }
+
+        /* Language Switch Dual Control */
+        .lang-switch-control {
+            display: inline-flex;
+            align-items: center;
+            background: #f1f5f9;
+            border: 1.5px solid #cbd5e1;
+            border-radius: 20px;
+            padding: 2.5px;
+            gap: 2px;
+            user-select: none;
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.04);
+            flex-shrink: 0;
+        }
+
+        .lang-switch-btn {
+            border: none;
+            background: transparent;
+            color: #475569;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 5px 12px;
+            border-radius: 16px;
+            cursor: pointer;
+            line-height: 1.2;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lang-switch-btn:hover:not(.active) {
+            color: var(--color-navy);
+            background: rgba(0, 0, 0, 0.05);
+        }
+
+        .lang-switch-btn.active {
+            background-color: var(--color-green);
+            color: #ffffff;
+            box-shadow: 0 2px 6px rgba(21, 128, 61, 0.28);
+        }
+
+        /* Mobile Menu Register Item (inside hamburger drawer) */
+        .mobile-menu-register-item {
+            display: none;
+        }
+
+        .btn-register-mobile {
+            display: none;
+        }
+
+        /* Google Translate Top Banner and Tooltip Reset */
+        .goog-te-banner-frame.skiptranslate,
+        .goog-te-banner-frame,
+        iframe.goog-te-banner-frame,
+        iframe.skiptranslate,
+        .VIpgJd-ZVi9od-ORHb-OEVmcd,
+        .VIpgJd-ZVi9od-aZ2wEe-wOHMyf {
+            visibility: hidden !important;
+            opacity: 0 !important;
+            height: 0 !important;
+            width: 0 !important;
+            position: fixed !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            pointer-events: none !important;
+            border: none !important;
+        }
+
+        #goog-gt-tt,
+        .goog-te-balloon-frame {
+            display: none !important;
+            visibility: hidden !important;
+        }
+
+        body {
+            top: 0px !important;
+            position: static !important;
+        }
+
+        #google_translate_element {
+            position: fixed !important;
+            top: -9999px !important;
+            left: -9999px !important;
+            width: 1px !important;
+            height: 1px !important;
+            overflow: hidden !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+            z-index: -1 !important;
+        }
+
+        font[color],
+        font {
+            background-color: transparent !important;
+            box-shadow: none !important;
+        }
+
+
+
+        /* =====================================
+           Hero Section (Matching Mock Reference)
+           ===================================== */
+        .hero-section {
+            width: 100%;
+            min-height: 560px;
+            position: relative;
+            background:
+                /* Soft left-side illumination gradient matching mock reference */
+                linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.88) 0%,
+                    rgba(255, 255, 255, 0.72) 28%,
+                    rgba(255, 255, 255, 0.22) 44%,
+                    rgba(255, 255, 255, 0.0) 56%),
+                url('assets/hero.png') no-repeat 48% center / cover;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-container {
+            max-width: 1440px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 56px 32px 76px;
+            position: relative;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 22px;
+        }
+
+        /* Left Hero Content */
+        .hero-content {
+            max-width: 360px;
+            display: flex;
+            flex-direction: column;
+            z-index: 3;
+            flex-shrink: 0;
+        }
+
+        .hero-title {
+            font-size: 38px;
+            font-weight: 800;
+            line-height: 1.18;
+            color: var(--color-navy);
+            letter-spacing: -0.6px;
+            margin-bottom: 16px;
+        }
+
+        .hero-title .text-green {
+            color: var(--color-green);
+        }
+
+        .hero-subtitle {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--color-green);
+            line-height: 1.52;
+            margin-bottom: 26px;
+            letter-spacing: -0.2px;
+            max-width: 350px;
+        }
+
+        /* CTA Buttons Group */
+        .hero-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-get-started {
+            background-color: var(--color-green);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(21, 128, 61, 0.35);
+            border: 1px solid transparent;
+        }
+
+        .btn-get-started:hover {
+            background-color: var(--color-green-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(21, 128, 61, 0.45);
+        }
+
+        .btn-watch-video {
+            background-color: #ffffff;
+            color: var(--color-navy);
+            text-decoration: none;
+            padding: 12px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            border: 1.5px solid #d1d5db;
+            cursor: pointer;
+            transition: all 0.25s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+
+        .btn-watch-video .play-icon {
+            color: var(--color-green);
+            font-size: 12px;
+            transition: transform 0.2s ease;
+        }
+
+        .btn-watch-video:hover {
+            border-color: var(--color-green);
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(13, 40, 71, 0.08);
+        }
+
+        .btn-watch-video:hover .play-icon {
+            transform: scale(1.15);
+        }
+
+        /* Right Side Cards Container */
+        .hero-right-cards {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            z-index: 3;
+            margin-left: auto;
+        }
+
+        /* =====================================
+           Vertical Green Feature Badges Card
+           (Positioned Right Beside the Farmer's Mobile Screen)
+           ===================================== */
+        .features-badge-card {
+            background: linear-gradient(168deg, rgba(19, 119, 67, 0.95) 0%, rgba(13, 93, 52, 0.97) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 18px;
+            padding: 16px 20px;
+            box-shadow: 0 14px 34px rgba(13, 93, 52, 0.35), 0 0 20px rgba(34, 197, 94, 0.18);
+            display: flex;
+            flex-direction: column;
+            gap: 11px;
+            min-width: 195px;
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            z-index: 3;
+            flex-shrink: 0;
+            margin-right: 14px;
+        }
+
+        .features-badge-mobile-wrapper {
+            display: none;
+        }
+
+        /* Callout Arrow pointing directly into the farmer's mobile screen */
+        .features-badge-card::after {
+            content: '';
+            position: absolute;
+            right: -9px;
+            top: 65%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            border-left: 9px solid #0f6438;
+            filter: drop-shadow(2px 0 2px rgba(0, 0, 0, 0.15));
+            display: block;
+        }
+
+        .features-badge-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 44px rgba(11, 74, 38, 0.35);
+        }
+
+        .feature-badge-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .feature-badge-row:hover {
+            transform: translateX(3px);
+        }
+
+        .feature-icon-circle {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.16);
+            border: 1.5px solid rgba(255, 255, 255, 0.45);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-size: 13.5px;
+            flex-shrink: 0;
+            transition: background 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .feature-badge-row:hover .feature-icon-circle {
+            background: #ffffff;
+            color: var(--color-green);
+            transform: scale(1.08);
+            border-color: #ffffff;
+        }
+
+        .feature-text {
+            color: #ffffff;
+            font-size: 14.5px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+        }
+
+        /* =====================================
+           Floating Mission White Badge Card
+           ===================================== */
+        .mission-badge-card {
+            background-color: #ffffff;
+            border: 1px solid rgba(226, 232, 240, 0.95);
+            border-radius: 16px;
+            padding: 16px 20px;
+            box-shadow: var(--shadow-elevated);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            min-width: 250px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+
+        .mission-badge-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 42px rgba(0, 0, 0, 0.12);
+        }
+
+        .mission-icon-wrap {
+            width: 46px;
+            height: 46px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .mission-icon-img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            transition: transform 0.25s ease;
+        }
+
+        .mission-badge-card:hover .mission-icon-img {
+            transform: scale(1.1);
+        }
+
+        .mission-content-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .mission-line-primary {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: var(--color-text-dark);
+            letter-spacing: -0.3px;
+            line-height: 1.35;
+        }
+
+        .mission-line-building {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: var(--color-text-dark);
+            letter-spacing: -0.3px;
+            line-height: 1.35;
+        }
+
+        .highlight-blue {
+            color: var(--color-blue-accent);
+            font-weight: 800;
+        }
+
+        /* =====================================
+           7 Category Icon Cards (Overlapping Hero Section with Curved Shelf)
+           ===================================== */
+        .category-cards-section {
+            width: 100%;
+            position: relative;
+            z-index: 20;
+            background-color: #ffffff;
+            margin-top: -30px;
+            padding: 16px 32px 38px;
+        }
+
+        .category-shelf-cap {
+            position: absolute;
+            top: -19px;
+            left: 0;
+            width: 100%;
+            height: 20px;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .category-shelf-cap-inner {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+            height: 20px;
+            display: flex;
+            align-items: stretch;
+            padding: 0 16px;
+        }
+
+        .category-shelf-svg-left {
+            width: 48px;
+            height: 20px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .category-shelf-mid {
+            flex: 1;
+            background-color: #ffffff;
+            height: 20px;
+        }
+
+        .category-shelf-svg-right {
+            width: 48px;
+            height: 20px;
+            flex-shrink: 0;
+            display: block;
+        }
+
+        .category-cards-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .category-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 16px;
+            width: 100%;
+        }
+
+        .category-card {
+            background: #ffffff;
+            border: 1px solid #edf2f7;
+            border-radius: 14px;
+            padding: 18px 10px 14px;
+            min-height: 102px;
+            box-shadow: 0 4px 16px rgba(15, 39, 68, 0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 10px;
+            text-decoration: none;
+            transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            background: #ffffff;
+            box-shadow: 0 12px 24px rgba(15, 39, 68, 0.10);
+            border-color: #cbd5e1;
+        }
+
+        .category-card-icon {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .category-card-icon svg {
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+        }
+
+        .category-card-label {
+            font-size: 13.5px;
+            font-weight: 700;
+            color: var(--color-navy);
+            letter-spacing: -0.15px;
+            line-height: 1.2;
+            white-space: nowrap;
+        }
+
+        /* =====================================
+           Farmer Onboarding & Mobile App Section
+           ===================================== */
+        .onboarding-app-section {
+            width: 100%;
+            padding: 24px 32px 64px;
+        }
+
+        .onboarding-app-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .onboarding-app-grid {
+            display: grid;
+            grid-template-columns: 1.42fr 1fr;
+            gap: 24px;
+            align-items: stretch;
+        }
+
+        /* ----- Left Card: Farmer Onboarding ----- */
+        .onboarding-card {
+            background:
+                linear-gradient(135deg,
+                    rgba(10, 32, 22, 0.78) 0%,
+                    rgba(15, 39, 68, 0.82) 100%),
+                url('assets/working_farmer.jpg') no-repeat center 28% / cover;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 18px;
+            padding: 34px 36px 30px;
+            box-shadow: 0 8px 28px rgba(10, 32, 22, 0.15);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .onboarding-card:hover {
+            box-shadow: 0 12px 36px rgba(10, 32, 22, 0.22);
+            transform: translateY(-2px);
+        }
+
+        .onboarding-header {
+            margin-bottom: 28px;
+        }
+
+        .onboarding-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+        }
+
+        .onboarding-subtitle {
+            font-size: 14.5px;
+            color: rgba(255, 255, 255, 0.88);
+            font-weight: 500;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* 4 Steps Flow */
+        .onboarding-steps {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .onboarding-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            width: 110px;
+            flex-shrink: 0;
+        }
+
+        .step-num-wrap {
+            height: 38px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .step-num {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #22c55e;
+            color: #ffffff;
+            font-size: 15px;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 14px rgba(34, 197, 94, 0.45);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .step-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .step-title {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 4px;
+            line-height: 1.25;
+            text-shadow: 0 1px 6px rgba(0, 0, 0, 0.4);
+        }
+
+        .step-desc {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.82);
+            line-height: 1.35;
+            font-weight: 500;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .step-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex: 1;
+            height: 38px;
+            padding: 0 6px;
+        }
+
+        .step-line {
+            flex: 1;
+            height: 1.5px;
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .step-chevron-svg {
+            width: 8px;
+            height: 10px;
+            margin-left: -2px;
+            flex-shrink: 0;
+        }
+
+        .step-chevron-svg path {
+            stroke: rgba(255, 255, 255, 0.55);
+        }
+
+        .btn-register-farmer {
+            background-color: #22c55e;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 700;
+            padding: 12px 24px;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            align-self: flex-start;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-register-farmer:hover {
+            background-color: #16a34a;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+        }
+
+        /* ----- Right Card: Mobile App ----- */
+        .app-card {
+            background:
+                linear-gradient(90deg,
+                    rgba(255, 255, 255, 1) 0%,
+                    rgba(255, 255, 255, 0.97) 42%,
+                    rgba(255, 255, 255, 0.6) 55%,
+                    rgba(255, 255, 255, 0) 68%),
+                url('assets/mobile_download.jpg') no-repeat right center / cover;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            box-shadow: 0 4px 20px rgba(15, 39, 68, 0.04);
+            display: flex;
+            overflow: hidden;
+            position: relative;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .app-card:hover {
+            box-shadow: 0 10px 28px rgba(15, 39, 68, 0.07);
+        }
+
+        .app-content {
+            padding: 32px 20px 28px 32px;
+            max-width: 60%;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 2;
+            position: relative;
+        }
+
+        .app-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 4px;
+        }
+
+        .app-emblem-svg {
+            width: 32px;
+            height: 32px;
+            flex-shrink: 0;
+        }
+
+        .app-title-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .app-title-kisan {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--color-green);
+            line-height: 1.15;
+            letter-spacing: -0.3px;
+        }
+
+        .app-title-mobile {
+            font-size: 19px;
+            font-weight: 800;
+            color: var(--color-navy);
+            line-height: 1.15;
+            letter-spacing: -0.3px;
+        }
+
+        .app-subtitle {
+            font-size: 13px;
+            color: #334155;
+            font-weight: 600;
+            line-height: 1.35;
+            margin: 6px 0 14px;
+        }
+
+        .app-features-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+
+        .app-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+        }
+
+        .app-check-svg {
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .app-feature-text {
+            font-size: 13px;
+            font-weight: 600;
+            color: #334155;
+            letter-spacing: -0.1px;
+        }
+
+        .app-stores-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .store-badge {
+            background: #000000;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 6px;
+            padding: 6px 10px;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            transition: transform 0.2s;
+        }
+
+        .store-badge:hover {
+            transform: translateY(-2px);
+        }
+
+        .store-badge-icon {
+            width: 17px;
+            height: 17px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .store-text-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            line-height: 1.1;
+        }
+
+        .store-sub {
+            font-size: 7.5px;
+            text-transform: uppercase;
+            color: #cbd5e1;
+            font-weight: 500;
+            letter-spacing: 0.2px;
+        }
+
+        .store-main {
+            font-size: 11.5px;
+            font-weight: 700;
+            letter-spacing: -0.2px;
+        }
+
+        /* =====================================
+           Farmer Marketplace Section
+           ===================================== */
+        .marketplace-section {
+            width: 100%;
+            padding: 0 32px 64px;
+        }
+
+        .marketplace-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .marketplace-card-wrapper {
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 18px;
+            padding: 30px 32px 34px;
+            box-shadow: 0 4px 20px rgba(15, 39, 68, 0.04);
+            position: relative;
+        }
+
+        .marketplace-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 24px;
+        }
+
+        .marketplace-title {
+            font-size: 26px;
+            font-weight: 800;
+            color: var(--color-navy);
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
+        }
+
+        .marketplace-subtitle {
+            font-size: 14.5px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .marketplace-view-all {
+            color: var(--color-blue-accent);
+            text-decoration: none;
+            font-size: 14.5px;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 0;
+            white-space: nowrap;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .marketplace-view-all:hover {
+            color: #0369a1;
+            transform: translateX(3px);
+        }
+
+        /* Carousel Track & Nav */
+        .marketplace-carousel-wrapper {
+            position: relative;
+            width: 100%;
+            min-width: 0;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            box-shadow: 0 4px 14px rgba(15, 39, 68, 0.12);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-navy);
+            cursor: pointer;
+            z-index: 20;
+            transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .carousel-arrow:hover {
+            background: var(--color-navy);
+            border-color: var(--color-navy);
+            color: #ffffff;
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 8px 20px rgba(15, 39, 68, 0.2);
+        }
+
+        .carousel-arrow:hover svg {
+            stroke: #ffffff;
+        }
+
+        .carousel-arrow:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .carousel-arrow-prev {
+            left: -20px;
+        }
+
+        .carousel-arrow-next {
+            right: -20px;
+        }
+
+        /* Carousel Viewport & Flexible Track */
+        .marketplace-viewport {
+            overflow: hidden;
+            width: 100%;
+            min-width: 0;
+            max-width: 100%;
+            padding: 8px 0 14px;
+            margin: -8px 0 -14px;
+            outline: none;
+            box-sizing: border-box;
+        }
+
+        .marketplace-track {
+            display: flex;
+            gap: 16px;
+            width: 100%;
+            position: relative;
+            transition: transform 0.38s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: transform;
+            user-select: none;
+        }
+
+        .market-crop-card {
+            flex: 0 0 calc((100% - 5 * 16px) / 6);
+            min-width: calc((100% - 5 * 16px) / 6);
+            max-width: calc((100% - 5 * 16px) / 6);
+            background: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            box-sizing: border-box;
+            transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease;
+        }
+
+        .market-crop-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px -4px rgba(15, 39, 68, 0.1);
+            border-color: #cbd5e1;
+        }
+
+        .crop-img-wrap {
+            width: 100%;
+            height: 118px;
+            overflow: hidden;
+            background: #f1f5f9;
+        }
+
+        .crop-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .market-crop-card:hover .crop-img {
+            transform: scale(1.05);
+        }
+
+        .crop-details {
+            padding: 13px 14px 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .crop-name {
+            font-size: 14.5px;
+            font-weight: 700;
+            color: var(--color-navy);
+            line-height: 1.25;
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .crop-price {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+        }
+
+        .price-val {
+            font-size: 15.5px;
+            font-weight: 800;
+            color: var(--color-navy);
+            letter-spacing: -0.3px;
+        }
+
+        .price-unit {
+            font-size: 12.5px;
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        .crop-location {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            color: #64748b;
+            font-weight: 500;
+            margin-bottom: 6px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .btn-sell-now {
+            background-color: var(--color-blue-accent);
+            color: #ffffff;
+            text-decoration: none;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+            padding: 9px 0;
+            border-radius: 7px;
+            width: 100%;
+            margin-top: auto;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+            display: block;
+        }
+
+        .btn-sell-now:hover {
+            background-color: #0369a1;
+        }
+
+        /* =====================================
+           Quick Agricultural Services Section
+           ===================================== */
+        .quick-services-section {
+            width: 100%;
+            padding: 0 32px 56px;
+        }
+
+        .quick-services-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .quick-services-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            width: 100%;
+        }
+
+        .service-feature-card {
+            border-radius: 16px;
+            padding: 22px 24px;
+            display: flex;
+            align-items: flex-start;
+            gap: 16px;
+            transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease;
+            position: relative;
+        }
+
+        .service-feature-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* 1. Green Card Theme */
+        .service-card-green {
+            background-color: #f2faf5;
+            border: 1px solid #d8f1e2;
+            box-shadow: 0 16px 38px -4px rgba(22, 163, 74, 0.22), 0 4px 14px -2px rgba(22, 163, 74, 0.12);
+        }
+
+        .service-card-green:hover {
+            border-color: #bbf0d0;
+            box-shadow: 0 24px 50px -4px rgba(22, 163, 74, 0.32), 0 8px 18px -2px rgba(22, 163, 74, 0.18);
+        }
+
+        .service-icon-green {
+            background: linear-gradient(135deg, #16a34a 0%, #15803d 100%);
+            box-shadow: 0 4px 12px rgba(21, 128, 61, 0.3);
+        }
+
+        .service-title-green {
+            color: #166534;
+        }
+
+        /* 2. Blue Card Theme */
+        .service-card-blue {
+            background-color: #f1f8fe;
+            border: 1px solid #daecfa;
+            box-shadow: 0 16px 38px -4px rgba(2, 132, 199, 0.22), 0 4px 14px -2px rgba(2, 132, 199, 0.12);
+        }
+
+        .service-card-blue:hover {
+            border-color: #bfe1f8;
+            box-shadow: 0 24px 50px -4px rgba(2, 132, 199, 0.32), 0 8px 18px -2px rgba(2, 132, 199, 0.18);
+        }
+
+        .service-icon-blue {
+            background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+            box-shadow: 0 4px 12px rgba(2, 132, 199, 0.3);
+        }
+
+        .service-title-blue {
+            color: #1e3a8a;
+        }
+
+        /* 3. Emerald Card Theme */
+        .service-card-emerald {
+            background-color: #f2faf5;
+            border: 1px solid #d8f1e2;
+            box-shadow: 0 16px 38px -4px rgba(21, 128, 61, 0.22), 0 4px 14px -2px rgba(21, 128, 61, 0.12);
+        }
+
+        .service-card-emerald:hover {
+            border-color: #bbf0d0;
+            box-shadow: 0 24px 50px -4px rgba(21, 128, 61, 0.32), 0 8px 18px -2px rgba(21, 128, 61, 0.18);
+        }
+
+        .service-icon-emerald {
+            background: linear-gradient(135deg, #15803d 0%, #166534 100%);
+            box-shadow: 0 4px 12px rgba(21, 128, 61, 0.3);
+        }
+
+        .service-title-emerald {
+            color: #166534;
+        }
+
+        /* 4. Amber/Orange Card Theme */
+        .service-card-amber {
+            background-color: #fff9ed;
+            border: 1px solid #fcebca;
+            box-shadow: 0 16px 38px -4px rgba(234, 88, 12, 0.22), 0 4px 14px -2px rgba(234, 88, 12, 0.12);
+        }
+
+        .service-card-amber:hover {
+            background-color: #fff4db;
+            border-color: #fbdca5;
+            box-shadow: 0 24px 50px -4px rgba(234, 88, 12, 0.32), 0 8px 18px -2px rgba(234, 88, 12, 0.18);
+        }
+
+        .service-icon-amber {
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
+            box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
+        }
+
+        .service-title-amber,
+        .service-title-orange,
+        .service-title-navy {
+            color: #c2410c;
+        }
+
+        .service-card-amber .service-action-link {
+            color: #ea580c;
+        }
+
+        .service-card-amber .service-action-link:hover {
+            color: #c2410c;
+        }
+
+        .service-card-green .service-action-link,
+        .service-card-emerald .service-action-link {
+            color: #15803d;
+        }
+
+        .service-card-green .service-action-link:hover,
+        .service-card-emerald .service-action-link:hover {
+            color: #0f622e;
+        }
+
+        .service-card-blue .service-action-link {
+            color: #0284c7;
+        }
+
+        .service-card-blue .service-action-link:hover {
+            color: #0369a1;
+        }
+
+        /* Common Card Elements */
+        .service-icon-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .service-content {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            flex: 1;
+        }
+
+        .service-title {
+            font-size: 16px;
+            font-weight: 800;
+            letter-spacing: -0.3px;
+            line-height: 1.25;
+            margin: 0;
+        }
+
+        .service-desc {
+            font-size: 13px;
+            color: #475569;
+            font-weight: 500;
+            line-height: 1.45;
+            margin: 0 0 4px;
+        }
+
+        .service-action-link {
+            color: #1d4ed8;
+            font-size: 13.5px;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            align-self: flex-start;
+            transition: color 0.2s ease, transform 0.2s ease;
+        }
+
+        .service-action-link:hover {
+            color: #1e40af;
+        }
+
+        .service-action-link:hover .service-link-arrow {
+            transform: translateX(4px);
+        }
+
+        .service-link-arrow {
+            display: inline-block;
+            transition: transform 0.2s ease;
+        }
+
+        @media (max-width: 1024px) {
+            .quick-services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 640px) {
+            .quick-services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =====================================
+           Empowering Farmers, Enriching India Banner
+           ===================================== */
+        .empower-banner-section {
+            width: 100%;
+            padding: 0 32px 64px;
+        }
+
+        .empower-banner-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .empower-banner-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            padding: 64px 56px;
+            background-color: #0b2d18;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 16px 45px rgba(8, 22, 42, 0.16);
+            min-height: 620px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            gap: 32px;
+        }
+
+        .empower-banner-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .empower-banner-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg,
+                    rgba(8, 28, 14, 0.65) 0%,
+                    rgba(8, 28, 14, 0.45) 45%,
+                    rgba(8, 28, 14, 0.15) 70%,
+                    rgba(0, 0, 0, 0) 88%),
+                linear-gradient(180deg,
+                    rgba(0, 0, 0, 0) 60%,
+                    rgba(8, 28, 14, 0.45) 100%);
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .empower-banner-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .empower-banner-title {
+            font-size: 34px;
+            font-weight: 800;
+            color: #ffffff;
+            letter-spacing: -0.4px;
+            line-height: 1.25;
+            margin: 0;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.55), 0 1px 2px rgba(0, 0, 0, 0.6);
+        }
+
+        /* 4 Horizontal Feature Badges with White Circular Icons */
+        .empower-pill-row {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+            flex-wrap: wrap;
+            position: relative;
+            z-index: 2;
+        }
+
+        .empower-pill-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            transition: transform 0.2s ease;
+            user-select: none;
+        }
+
+        .empower-pill-item:hover {
+            transform: translateY(-2px);
+        }
+
+        .empower-pill-circle {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .empower-pill-item:hover .empower-pill-circle {
+            transform: scale(1.06);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
+        .empower-pill-label {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #ffffff;
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65), 0 1px 2px rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 1024px) {
+            .empower-pill-row {
+                gap: 20px 24px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .empower-banner-card {
+                padding: 40px 24px;
+                min-height: 480px;
+                justify-content: flex-end;
+            }
+
+            .empower-banner-title {
+                font-size: 26px;
+            }
+
+            .empower-pill-row {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+
+        @media (max-width: 540px) {
+            .empower-banner-card {
+                min-height: 520px;
+                padding: 32px 18px;
+            }
+
+            .empower-pill-row {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =====================================
+           For Buyers / Traders / Businesses Section
+           ===================================== */
+        .buyers-section {
+            width: 100%;
+            padding: 0 32px 72px;
+        }
+
+        .buyers-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .buyers-card-wrapper {
+            background: #ffffff;
+            border: 1px solid #e5e9f0;
+            border-radius: 18px;
+            padding: 30px 36px 30px;
+            box-shadow: 0 4px 20px rgba(15, 39, 68, 0.04);
+        }
+
+        .buyers-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+            margin-bottom: 24px;
+        }
+
+        .buyers-header-text {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+
+        .buyers-title {
+            font-size: 25px;
+            font-weight: 800;
+            color: #0d2646;
+            letter-spacing: -0.4px;
+            margin: 0;
+            line-height: 1.25;
+        }
+
+        .buyers-subtitle {
+            font-size: 14.5px;
+            color: #556980;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        .btn-register-buyer {
+            background: #15803d;
+            color: #ffffff;
+            padding: 10px 22px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            white-space: nowrap;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 6px rgba(21, 128, 61, 0.2);
+            flex-shrink: 0;
+        }
+
+        .btn-register-buyer:hover {
+            background: #166534;
+            box-shadow: 0 4px 12px rgba(21, 128, 61, 0.3);
+            transform: translateY(-1px);
+        }
+
+        .buyers-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        .buyer-feature-card {
+            background: #ffffff;
+            border: 1px solid #edf2f7;
+            border-radius: 12px;
+            padding: 18px 20px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            box-shadow: 0 1px 3px rgba(15, 39, 68, 0.02);
+            transition: all 0.25s ease;
+        }
+
+        .buyer-feature-card:hover {
+            border: 1px solid #41a166c7;
+            box-shadow: 0 4px 14px rgba(31, 133, 68, 0.346);
+            transform: translateY(-2px);
+        }
+
+        .buyer-icon-box {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .buyer-card-info {
+            display: flex;
+            flex-direction: column;
+            gap: 3px;
+            min-width: 0;
+        }
+
+        .buyer-card-title {
+            font-size: 15.5px;
+            font-weight: 700;
+            color: #0d2646;
+            margin: 0;
+            line-height: 1.3;
+            letter-spacing: -0.2px;
+            white-space: nowrap;
+        }
+
+        .buyer-card-desc {
+            font-size: 13px;
+            color: #64748b;
+            font-weight: 500;
+            margin: 0;
+            line-height: 1.35;
+            white-space: nowrap;
+        }
+
+        @media (max-width: 1180px) {
+            .buyers-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .buyer-card-title,
+            .buyer-card-desc {
+                white-space: normal;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .buyers-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 16px;
+            }
+
+            .buyers-card-wrapper {
+                padding: 24px 20px;
+            }
+
+            .buyers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* =====================================
+           Ending Impact Stats Bar Section
+           ===================================== */
+        .stats-bar-section {
+            width: 100%;
+            background: #ffffff;
+            border-top: 1px solid #e5e9f0;
+            border-bottom: 1px solid #e5e9f0;
+            padding: 30px 0;
+        }
+
+        .stats-bar-container {
+            max-width: 1440px;
+            margin: 0 auto;
+            padding: 0 32px;
+        }
+
+        .stats-bar-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            align-items: center;
+        }
+
+        .stat-item {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            padding: 4px 20px;
+            border-right: 1px solid #e5e9f0;
+        }
+
+        .stat-item:last-child {
+            border-right: none;
+        }
+
+        .stat-icon-wrap {
+            width: 44px;
+            height: 44px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #16a34a;
+            font-size: 32px;
+        }
+
+        .stat-icon-wrap svg {
+            width: 38px;
+            height: 38px;
+        }
+
+        .stat-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 26px;
+            font-weight: 700;
+            color: #0d2646;
+            line-height: 1.1;
+            letter-spacing: -0.3px;
+        }
+
+        .stat-label {
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 600;
+            color: #475569;
+            line-height: 1.25;
+            white-space: nowrap;
+        }
+
+        /* =====================================
+           Footer Section (Dimensions from Andhra Medical Directory)
+           ===================================== */
+        .footer-section {
+            width: 100%;
+            background: #0b4227;
+            color: #ffffff;
+            font-family: var(--font-body);
+            position: relative;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
+            z-index: 10;
+        }
+
+        .footer-container {
+            max-width: 1480px;
+            margin: 0 auto;
+            padding: 0 42px;
+        }
+
+        .footer-main-grid {
+            display: grid;
+            grid-template-columns: 1.35fr 1fr 1.15fr 1.1fr 1.4fr;
+            gap: 28px;
+            padding-bottom: 22px;
+            align-items: flex-start;
+        }
+
+        /* White Container for Brand Logo & Text */
+        .footer-brand-box {
+            background: #ffffff;
+            border-radius: 12px;
+            padding: 10px 14px 10px 12px;
+            display: inline-flex;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.16);
+            width: fit-content;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .footer-brand-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .footer-brand-logo {
+            height: 38px;
+            width: auto;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .footer-brand-text-col {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            gap: 3px;
+        }
+
+        .footer-brand-name {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            display: inline-flex;
+            gap: 4px;
+            line-height: 1.1;
+        }
+
+        .footer-text-andhra {
+            color: #16a34a;
+        }
+
+        .footer-text-kisan {
+            color: #0274b3;
+        }
+
+        .footer-brand-tagline {
+            font-size: 9.5px;
+            font-weight: 600;
+            color: #64748b;
+            letter-spacing: -0.1px;
+            white-space: nowrap;
+            line-height: 1.2;
+            display: block;
+        }
+
+        .footer-col {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-col-divider-left {
+            border-left: 1px solid rgba(255, 255, 255, 0.22);
+            padding-left: 20px;
+        }
+
+        .footer-col-title {
+            font-family: var(--font-display);
+            font-size: 17.5px;
+            font-weight: 600;
+            color: #ffffff;
+            margin: 0 0 10px 0;
+            letter-spacing: -0.01em;
+        }
+
+        .footer-nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .footer-nav-link {
+            font-family: var(--font-body);
+            color: #f0fdf4;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.18s ease, transform 0.18s ease;
+            display: inline-block;
+            line-height: 1.35;
+        }
+
+        .footer-nav-link:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transform: translateX(2px);
+        }
+
+        /* Social Icons Row */
+        .footer-social-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-social-btn {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 13.5px;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .social-fb {
+            background: #1877f2;
+        }
+
+        .social-insta {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social-yt {
+            background: #ff0000;
+        }
+
+        .social-tw {
+            background: #1da1f2;
+        }
+
+        .social-li {
+            background: #0a66c2;
+        }
+
+        /* Bottom Strip */
+        .footer-bottom-bar {
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            padding: 13px 0 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 14px;
+        }
+
+        .footer-contacts-strip {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact-item {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            color: #ffffff;
+            text-decoration: none;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+            transition: opacity 0.18s ease;
+        }
+
+        .footer-contact-item i {
+            color: rgba(255, 255, 255, 0.85);
+            font-size: 13px;
+        }
+
+        .footer-contact-item:hover {
+            color: #ffffff;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+        }
+
+        .footer-contact-sep {
+            color: rgba(255, 255, 255, 0.35);
+            font-size: 13px;
+            user-select: none;
+        }
+
+        .footer-mission-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #ffffff;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .footer-mission-badge svg {
+            flex-shrink: 0;
+            stroke: #ffffff;
+        }
+
+        @media (max-width: 1200px) {
+            .footer-main-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+
+            .footer-col-divider-left {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .stats-bar-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+
+            .stat-item {
+                border-right: none;
+                justify-content: flex-start;
+            }
+
+            .footer-main-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .footer-main-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+                padding-bottom: 20px;
+            }
+
+            .footer-col-divider-left {
+                border-left: none;
+                padding-left: 0;
+            }
+
+            .footer-bottom-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .footer-contacts-strip {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+
+            .footer-contact-sep {
+                display: none;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .stats-bar-grid {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .stat-item {
+                padding: 10px 0;
+                border-bottom: 1px solid #eef2f6;
+            }
+
+            .stat-item:last-child {
+                border-bottom: none;
+            }
+        }
+
+        /* =====================================
+           Video Modal Popup
+           ===================================== */
+        .video-modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(13, 40, 71, 0.75);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-modal-backdrop.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .video-modal-dialog {
+            background: #ffffff;
+            border-radius: 18px;
+            max-width: 680px;
+            width: 100%;
+            overflow: hidden;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            position: relative;
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+
+        .video-modal-backdrop.active .video-modal-dialog {
+            transform: scale(1);
+        }
+
+        .video-modal-header {
+            padding: 18px 24px;
+            border-bottom: 1px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .video-modal-title {
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--color-navy);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .video-modal-title i {
+            color: var(--color-green);
+        }
+
+        .video-close-btn {
+            background: none;
+            border: none;
+            font-size: 22px;
+            color: #64748b;
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s, color 0.2s;
+        }
+
+        .video-close-btn:hover {
+            background: #f1f5f9;
+            color: #0f172a;
+        }
+
+        .video-modal-body {
+            padding: 24px;
+            background: #0f172a;
+            aspect-ratio: 16 / 9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            text-align: center;
+            position: relative;
+        }
+
+        .video-mock-player {
+            width: 72px;
+            height: 72px;
+            border-radius: 50%;
+            background: var(--color-green);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 26px;
+            color: #ffffff;
+            box-shadow: 0 0 0 12px rgba(34, 197, 94, 0.25);
+            margin-bottom: 16px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .video-mock-player:hover {
+            transform: scale(1.1);
+        }
+
+        /* =====================================
+           Responsive Media Queries (modeled after my dealz 365)
+           ===================================== */
+        @media (max-width: 1280px) {
+            .navbar-wrapper {
+                padding: 12px 28px;
+            }
+
+            .nav-menu {
+                gap: 20px;
+            }
+
+            .hero-container {
+                gap: 16px;
+            }
+
+            .hero-content {
+                max-width: 340px;
+            }
+
+            .hero-right-cards {
+                gap: 14px;
+            }
+
+            .features-badge-card {
+                padding: 14px 16px;
+                min-width: 190px;
+                margin-right: 10px;
+            }
+
+            .mission-badge-card {
+                padding: 14px 16px;
+                min-width: 225px;
+            }
+
+            .hero-title {
+                font-size: 38px;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .nav-menu {
+                gap: 16px;
+            }
+
+            .nav-link {
+                font-size: 13.5px;
+            }
+
+            .hero-section {
+                background-position: 48% center;
+            }
+
+            .hero-right-cards {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .category-cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 14px;
+            }
+        }
+
+        @media (max-width: 960px) {
+            .navbar-wrapper {
+                height: auto;
+                min-height: 64px;
+                padding: 10px 20px;
+            }
+
+            .brand-tab-wrapper {
+                height: auto;
+                margin-top: 0;
+                margin-bottom: 0;
+                margin-left: 0;
+                padding: 0;
+                filter: none;
+                background: transparent;
+            }
+
+            .brand-tab-wrapper::before,
+            .brand-tab-curve {
+                display: none;
+            }
+
+            .brand-logo {
+                height: 40px;
+            }
+
+            .category-shelf-cap {
+                display: none;
+            }
+
+            .nav-mobile-toggle {
+                display: block;
+            }
+
+            .nav-menu {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px 24px;
+                gap: 16px;
+                box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+                border-bottom: 1px solid #e2e8f0;
+                display: none;
+                z-index: 1000;
+                max-height: calc(100vh - 72px);
+                overflow-y: auto;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .nav-dropdown {
+                position: static;
+                box-shadow: none;
+                border: none;
+                padding-left: 14px;
+                display: none;
+                width: 100%;
+            }
+
+            .nav-item.has-dropdown.open .nav-dropdown {
+                display: block;
+            }
+
+            .nav-link.active::after {
+                display: none;
+            }
+
+            .nav-actions {
+                gap: 14px;
+            }
+
+            .btn-register-desktop {
+                display: none !important;
+            }
+
+            .mobile-menu-register-item {
+                display: block !important;
+                width: 100%;
+                margin-top: 10px;
+                padding-top: 16px;
+                border-top: 1px solid #e2e8f0;
+            }
+
+            .btn-register-mobile {
+                display: flex !important;
+                align-items: center;
+                justify-content: center;
+                width: 100%;
+                padding: 12px 20px;
+                background-color: var(--color-green);
+                color: #ffffff;
+                font-weight: 700;
+                font-size: 15px;
+                border-radius: 8px;
+                text-decoration: none;
+                box-shadow: 0 3px 10px rgba(21, 128, 61, 0.25);
+            }
+
+            .btn-register-mobile:hover {
+                background-color: var(--color-green-dark);
+            }
+
+            .lang-switch-control {
+                padding: 2px;
+            }
+
+            .lang-switch-btn {
+                font-size: 12px;
+                padding: 4px 9px;
+            }
+
+            .hero-section {
+                min-height: auto;
+                background: linear-gradient(180deg, rgba(255, 255, 255, 0.52) 0%, rgba(255, 255, 255, 0.22) 50%, rgba(255, 255, 255, 0.35) 100%),
+                    url('assets/hero.png') no-repeat center center / cover;
+            }
+
+            .hero-container {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 40px 20px 32px;
+                gap: 20px;
+            }
+
+            .hero-content {
+                display: flex;
+                flex-direction: column;
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .hero-title {
+                margin-bottom: 14px;
+            }
+
+            .hero-subtitle {
+                margin-bottom: 20px;
+            }
+
+            .hero-actions {
+                width: 100%;
+                margin-bottom: 0;
+            }
+
+            .hero-right-cards {
+                width: 100%;
+                margin-left: 0;
+            }
+
+            .hero-section .features-badge-card {
+                display: none;
+            }
+
+            .features-badge-mobile-wrapper {
+                display: flex;
+                justify-content: center;
+                padding: 24px 20px 10px;
+                background: #ffffff;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .features-badge-mobile-wrapper .features-badge-card {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                width: 100%;
+                max-width: 460px;
+                min-width: 0;
+                padding: 12px 16px;
+                gap: 8px 10px;
+                border-radius: 14px;
+                margin: 0;
+                box-shadow: 0 10px 28px rgba(13, 93, 52, 0.22);
+            }
+
+            .features-badge-mobile-wrapper .features-badge-card::after {
+                display: none;
+            }
+
+            .feature-badge-row {
+                gap: 8px;
+            }
+
+            .feature-icon-circle {
+                width: 26px;
+                height: 26px;
+                font-size: 11px;
+            }
+
+            .feature-text {
+                font-size: 12.5px;
+            }
+
+            .mission-badge-card {
+                width: 100%;
+                max-width: 380px;
+            }
+
+            .category-cards-section {
+                padding: 0 20px 40px;
+                margin-top: 0;
+            }
+
+            .category-cards-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 12px;
+            }
+
+            /* Farmer Onboarding & Mobile App Section Responsive */
+            .onboarding-app-section {
+                padding: 20px 20px 48px;
+            }
+
+            .onboarding-app-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .onboarding-card {
+                padding: 28px 24px;
+            }
+
+            .onboarding-steps {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 12px;
+                margin-bottom: 24px;
+            }
+
+            .onboarding-step {
+                flex-direction: row;
+                align-items: center;
+                text-align: left;
+                width: 100%;
+                gap: 16px;
+                background: rgba(255, 255, 255, 0.08);
+                border: 1px solid rgba(255, 255, 255, 0.16);
+                border-radius: 12px;
+                padding: 12px 16px;
+                backdrop-filter: blur(6px);
+                -webkit-backdrop-filter: blur(6px);
+            }
+
+            .step-num-wrap {
+                margin-bottom: 0;
+                height: auto;
+                flex-shrink: 0;
+            }
+
+            .step-num {
+                width: 38px;
+                height: 38px;
+                font-size: 15px;
+            }
+
+            .step-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                text-align: left;
+            }
+
+            .step-title {
+                font-size: 15px;
+                font-weight: 700;
+                margin-bottom: 2px;
+            }
+
+            .step-desc {
+                font-size: 13px;
+                line-height: 1.35;
+            }
+
+            .desktop-br {
+                display: none;
+            }
+
+            .step-arrow {
+                display: none;
+            }
+
+            .btn-register-farmer {
+                width: 100%;
+                justify-content: center;
+                text-align: center;
+            }
+
+            .app-card {
+                background:
+                    linear-gradient(180deg,
+                        rgba(255, 255, 255, 0.98) 0%,
+                        rgba(255, 255, 255, 0.94) 55%,
+                        rgba(255, 255, 255, 0.78) 100%),
+                    url('assets/mobile_download.png') no-repeat right bottom / cover;
+            }
+
+            .app-content {
+                max-width: 100%;
+                padding: 28px 24px;
+            }
+
+            /* Marketplace on Tablets */
+            .marketplace-section {
+                padding: 0 20px 48px;
+            }
+
+            .marketplace-card-wrapper {
+                padding: 24px 20px 28px;
+            }
+
+            .market-crop-card {
+                flex: 0 0 calc((100% - 2 * 16px) / 3);
+                min-width: calc((100% - 2 * 16px) / 3);
+                max-width: calc((100% - 2 * 16px) / 3);
+            }
+        }
+
+        /* Mobile View: 1 Card at a time in Farmer Marketplace */
+        @media (max-width: 768px) {
+            .market-crop-card {
+                flex: 0 0 100%;
+                min-width: 100%;
+                max-width: 100%;
+            }
+
+            .crop-img-wrap {
+                height: 190px;
+            }
+
+            .carousel-arrow-prev {
+                left: 6px;
+            }
+
+            .carousel-arrow-next {
+                right: 6px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .navbar-wrapper {
+                padding: 10px 14px;
+            }
+
+            .navbar {
+                gap: 8px;
+            }
+
+            .brand-container {
+                gap: 8px;
+                min-width: 0;
+            }
+
+            .brand-title-stacked {
+                gap: 4px;
+            }
+
+            .brand-andhra,
+            .brand-kisan {
+                font-size: 16px;
+                line-height: 1.1;
+            }
+
+            .brand-tagline {
+                display: block;
+                font-size: 8.5px;
+                letter-spacing: -0.05px;
+                margin-top: 2px;
+                color: #64748b;
+                line-height: 1.1;
+                white-space: nowrap;
+            }
+
+            .brand-logo {
+                height: 36px;
+                flex-shrink: 0;
+            }
+
+            .btn-register-desktop {
+                display: none !important;
+            }
+
+            .lang-switch-control {
+                padding: 2px;
+                border-radius: 16px;
+            }
+
+            .lang-switch-btn {
+                font-size: 11px;
+                padding: 3.5px 7px;
+                border-radius: 12px;
+            }
+
+            .nav-login-link {
+                display: none;
+            }
+
+            .nav-search-btn {
+                width: 34px;
+                height: 34px;
+                font-size: 13.5px;
+                flex-shrink: 0;
+            }
+
+            .nav-mobile-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 34px;
+                height: 34px;
+                font-size: 19px;
+                padding: 4px;
+                flex-shrink: 0;
+            }
+
+            .nav-actions {
+                gap: 8px;
+                flex-shrink: 0;
+            }
+
+            .hero-container {
+                padding: 32px 14px 28px;
+                gap: 20px;
+            }
+
+            .hero-content {
+                max-width: 100%;
+                width: 100%;
+            }
+
+            .hero-title {
+                font-size: 28px;
+                line-height: 1.2;
+            }
+
+            .hero-subtitle {
+                font-size: 13.5px;
+            }
+
+            .hero-actions {
+                width: 100%;
+                display: flex;
+                flex-direction: row;
+                gap: 10px;
+            }
+
+            .btn-get-started,
+            .btn-watch-video {
+                flex: 1;
+                width: auto;
+                min-width: 0;
+                justify-content: center;
+                padding: 11px 12px;
+                font-size: 13.5px;
+                white-space: nowrap;
+            }
+
+            .hero-right-cards {
+                flex-direction: column;
+            }
+
+            .features-badge-mobile-wrapper {
+                padding: 18px 14px 6px;
+            }
+
+            .features-badge-mobile-wrapper .features-badge-card {
+                width: 100%;
+                max-width: 100%;
+                min-width: 0;
+                padding: 11px 12px;
+                gap: 8px 10px;
+                border-radius: 14px;
+                margin-bottom: 0;
+            }
+
+            .mission-badge-card {
+                width: 100%;
+                min-width: 0;
+            }
+
+            .feature-badge-row {
+                gap: 8px;
+            }
+
+            .feature-icon-circle {
+                width: 24px;
+                height: 24px;
+                font-size: 10.5px;
+            }
+
+            .feature-text {
+                font-size: 12px;
+            }
+
+            .category-cards-section {
+                padding: 10px 14px 32px;
+                margin-top: 0;
+            }
+
+            .category-cards-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 8px;
+            }
+
+            /* Center any leftover card (e.g. Knowledge card in 2-column mobile view) */
+            .category-cards-grid .category-card:last-child:nth-child(odd) {
+                grid-column: 1 / -1;
+                justify-self: center;
+                width: calc(50% - 4px);
+            }
+
+            .category-card {
+                padding: 14px 6px 12px;
+                min-height: 88px;
+            }
+
+            .category-card-icon {
+                width: 36px;
+                height: 36px;
+            }
+
+            .category-card-label {
+                font-size: 12px;
+            }
+
+            .onboarding-app-section {
+                padding: 16px 14px 40px;
+            }
+
+            .onboarding-card {
+                padding: 24px 16px 20px;
+            }
+
+            .onboarding-title {
+                font-size: 22px;
+            }
+
+            .onboarding-subtitle {
+                font-size: 13.5px;
+            }
+
+            .onboarding-step {
+                padding: 10px 14px;
+                gap: 12px;
+            }
+
+            .step-title {
+                font-size: 14px;
+            }
+
+            .step-desc {
+                font-size: 12px;
+            }
+
+            .app-content {
+                padding: 24px 16px;
+            }
+
+            .app-title-kisan,
+            .app-title-mobile {
+                font-size: 18px;
+            }
+
+            .app-stores-row {
+                flex-wrap: wrap;
+                gap: 8px;
+            }
+
+            /* Farmer Marketplace Mobile Styles */
+            .marketplace-section {
+                padding: 0 14px 36px;
+            }
+
+            .marketplace-card-wrapper {
+                padding: 20px 14px 24px;
+                overflow: hidden;
+                box-sizing: border-box;
+            }
+
+            .marketplace-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+                margin-bottom: 18px;
+            }
+
+            .marketplace-title {
+                font-size: 22px;
+            }
+
+            .marketplace-subtitle {
+                font-size: 13.5px;
+            }
+
+            .crop-img-wrap {
+                height: 180px;
+            }
+
+            .crop-details {
+                padding: 14px 16px 16px;
+                gap: 7px;
+            }
+
+            .crop-name {
+                font-size: 16px;
+            }
+
+            .price-val {
+                font-size: 17px;
+            }
+
+            .btn-sell-now {
+                padding: 11px 0;
+                font-size: 14px;
+                border-radius: 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .navbar-wrapper {
+                padding: 8px 10px;
+            }
+
+            .navbar {
+                gap: 6px;
+            }
+
+            .brand-container {
+                gap: 6px;
+            }
+
+            .brand-logo {
+                height: 30px;
+            }
+
+            .brand-andhra,
+            .brand-kisan {
+                font-size: 14.5px;
+            }
+
+            .brand-tagline {
+                font-size: 7.2px;
+                letter-spacing: -0.15px;
+            }
+
+            .nav-actions {
+                gap: 5px;
+            }
+
+            .btn-register-desktop {
+                display: none !important;
+            }
+
+            .lang-switch-control {
+                padding: 1.5px;
+            }
+
+            .lang-switch-btn {
+                font-size: 10px;
+                padding: 2.5px 5.5px;
+            }
+
+            .nav-search-btn {
+                width: 30px;
+                height: 30px;
+                font-size: 12px;
+                border-radius: 6px;
+            }
+
+            .nav-mobile-toggle {
+                width: 30px;
+                height: 30px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .navbar-wrapper {
+                padding: 8px 6px;
+            }
+
+            .navbar {
+                gap: 4px;
+            }
+
+            .brand-container {
+                gap: 4px;
+            }
+
+            .brand-title-stacked {
+                gap: 3px;
+            }
+
+            .brand-logo {
+                height: 26px;
+            }
+
+            .brand-andhra,
+            .brand-kisan {
+                font-size: 13px;
+            }
+
+            .brand-tagline {
+                font-size: 6.8px;
+                letter-spacing: -0.2px;
+            }
+
+            .nav-actions {
+                gap: 3.5px;
+            }
+
+            .btn-register-desktop {
+                display: none !important;
+            }
+
+            .lang-switch-control {
+                padding: 1px;
+            }
+
+            .lang-switch-btn {
+                font-size: 9.5px;
+                padding: 2px 4.5px;
+            }
+
+            .nav-search-btn {
+                width: 28px;
+                height: 28px;
+                font-size: 11px;
+                border-radius: 6px;
+            }
+
+            .nav-mobile-toggle {
+                width: 28px;
+                height: 28px;
+                font-size: 15px;
+            }
+
+            .hero-actions {
+                gap: 8px;
+            }
+
+            .btn-get-started,
+            .btn-watch-video {
+                padding: 10px 8px;
+                font-size: 12.5px;
+            }
+
+            .features-badge-mobile-wrapper .features-badge-card {
+                padding: 9px 10px;
+                gap: 6px 8px;
+            }
+
+            .features-badge-mobile-wrapper .feature-text {
+                font-size: 11px;
+            }
+
+            .features-badge-mobile-wrapper .feature-icon-circle {
+                width: 22px;
+                height: 22px;
+                font-size: 10px;
+            }
+
+            .footer-brand-tagline {
+                font-size: 8.5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar (Matching Mock Image) -->
+    <header class="navbar-wrapper">
+        <nav class="navbar">
+
+            <!-- Brand Section (Logo + Stacked Name + Tagline + Curved Tab Fillet) -->
+            <div class="brand-tab-wrapper">
+                <a href="#" class="brand-container">
+                    <img src="assets/logo-clean.png" alt="Andhra Kisan Logo" class="brand-logo" />
+                    <div class="brand-text-col">
+                        <div class="brand-title-stacked">
+                            <span class="brand-andhra">Andhra</span>
+                            <span class="brand-kisan">Kisan</span>
+                        </div>
+                        <div class="brand-tagline">Empowering Farmers. Enriching Andhra.</div>
+                    </div>
+                </a>
+                <div class="brand-tab-curve" aria-hidden="true">
+                    <svg viewBox="0 0 48 24" preserveAspectRatio="none" class="brand-tab-curve-svg">
+                        <path d="M 0 0 L 0 24 C 20 24 28 0 48 0 Z" fill="#ffffff" />
+                    </svg>
+                </div>
+            </div>
+
+            <!-- Navigation Menu Links (Matching Mock Image) -->
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link active">Home</a>
+                </li>
+                <li class="nav-item has-dropdown">
+                    <a href="#services" class="nav-link" id="servicesDropdownLink" role="button" aria-haspopup="true"
+                        aria-expanded="false">
+                        <span>Services</span>
+                        <i class="fa-solid fa-chevron-down nav-chevron"></i>
+                    </a>
+                    <div class="nav-dropdown" aria-labelledby="servicesDropdownLink">
+                        <a href="#prices" class="dropdown-item">Better Prices & Mandi</a>
+                        <a href="#inputs" class="dropdown-item">Quality Seeds & Fertilizers</a>
+                        <a href="#guidance" class="dropdown-item">Expert Agronomist Advisory</a>
+                        <a href="#market-rates" class="dropdown-item">Live Market Rates</a>
+                        <a href="#weather" class="dropdown-item">Weather Updates</a>
+                        <a href="#direct-buyers" class="dropdown-item">Direct Buyer Connect</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="#market-prices" class="nav-link">Market Prices</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#knowledge" class="nav-link">Knowledge</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#weather" class="nav-link">Weather</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#news" class="nav-link">News</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about-us" class="nav-link">About Us</a>
+                </li>
+                <!-- Mobile Drawer Register Button -->
+                <li class="nav-item mobile-menu-register-item">
+                    <a href="#register" class="btn-register-mobile">Register</a>
+                </li>
+            </ul>
+
+            <!-- Right Actions (Language Switch, Search Icon, Login, Register) -->
+            <div class="nav-actions">
+                <!-- Dual Switch Language Selector (English | తెలుగు) -->
+                <div class="lang-switch-control" role="group" aria-label="Language Selector">
+                    <button type="button" class="lang-switch-btn active" id="langBtnEn" data-lang="en">English</button>
+                    <button type="button" class="lang-switch-btn" id="langBtnTe" data-lang="te">తెలుగు</button>
+                </div>
+
+                <!-- Search Button (Rounded Box with Search Icon) -->
+                <button type="button" class="nav-search-btn" id="toggleSearchBtn" title="Search platform"
+                    aria-label="Search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+
+                <!-- Login Link with User Icon -->
+                <a href="#login" class="nav-login-link">
+                    <i class="fa-regular fa-user"></i>
+                    <span>Login</span>
+                </a>
+
+                <!-- Register Solid Green Button (Desktop only; on mobile it is inside hamburger menu) -->
+                <a href="#register" class="btn-register btn-register-desktop">Register</a>
+
+                <!-- Mobile Hamburger Toggle -->
+                <button type="button" class="nav-mobile-toggle" id="mobileMenuToggle"
+                    aria-label="Toggle navigation menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- =====================================
+         Hero Section (with hero.png, text & badges)
+         ===================================== -->
+    <section class="hero-section">
+        <div class="hero-container">
+
+            <!-- Left Content: Headline, Subtitle & CTA Buttons -->
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Together for<br>
+                    <span class="text-green">Prosperous Farms</span><br>
+                    and Stronger Andhra
+                </h1>
+
+                <p class="hero-subtitle">
+                    Your trusted partner for farming guidance,<br>
+                    quality inputs, market prices and direct market access.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#get-started" class="btn-get-started">Get Started</a>
+                    <a href="#empower-video-section" class="btn-watch-video" id="openVideoBtn">
+                        <i class="fa-solid fa-play play-icon"></i>
+                        <span>Watch Video</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Features Badge Card: Positioned right beside the mobile phone of the farmer -->
+            <div class="features-badge-card">
+                <a href="#prices" class="feature-badge-row">
+                    <div class="feature-icon-circle">
+                        <i class="fa-solid fa-cloud-sun"></i>
+                    </div>
+                    <span class="feature-text">Better Prices</span>
+                </a>
+
+                <a href="#inputs" class="feature-badge-row">
+                    <div class="feature-icon-circle">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <span class="feature-text">Quality Inputs</span>
+                </a>
+
+                <a href="#guidance" class="feature-badge-row">
+                    <div class="feature-icon-circle">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <span class="feature-text">Expert Guidance</span>
+                </a>
+
+                <a href="#mandi-rates" class="feature-badge-row">
+                    <div class="feature-icon-circle">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <span class="feature-text">Live Market Rates</span>
+                </a>
+
+                <a href="#weather-updates" class="feature-badge-row">
+                    <div class="feature-icon-circle">
+                        <i class="fa-solid fa-cloud-sun-rain"></i>
+                    </div>
+                    <span class="feature-text">Weather Updates</span>
+                </a>
+
+                <a href="#direct-buyers" class="feature-badge-row">
+                    <div class="feature-icon-circle">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <span class="feature-text">Direct Buyers</span>
+                </a>
+            </div>
+
+            <!-- Right Side Cards: White Mission Card -->
+            <div class="hero-right-cards">
+
+                <!-- Floating White Mission Badge Card -->
+                <div class="mission-badge-card">
+                    <div class="mission-icon-wrap">
+                        <img src="assets/badge_icon.png" alt="Supporting Farmers" class="mission-icon-img" />
+                    </div>
+                    <div class="mission-content-wrap">
+                        <div class="mission-line-primary">Supporting Farmers.</div>
+                        <div class="mission-line-primary">Strengthening Agriculture.</div>
+                        <div class="mission-line-building">Building a <span class="highlight-blue">Better Andhra.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Features Badge Card (Mobile View: Positioned After Hero Section) -->
+    <div class="features-badge-mobile-wrapper">
+        <div class="features-badge-card">
+            <a href="#prices" class="feature-badge-row">
+                <div class="feature-icon-circle">
+                    <i class="fa-solid fa-cloud-sun"></i>
+                </div>
+                <span class="feature-text">Better Prices</span>
+            </a>
+
+            <a href="#inputs" class="feature-badge-row">
+                <div class="feature-icon-circle">
+                    <i class="fa-solid fa-seedling"></i>
+                </div>
+                <span class="feature-text">Quality Inputs</span>
+            </a>
+
+            <a href="#guidance" class="feature-badge-row">
+                <div class="feature-icon-circle">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <span class="feature-text">Expert Guidance</span>
+            </a>
+
+            <a href="#mandi-rates" class="feature-badge-row">
+                <div class="feature-icon-circle">
+                    <i class="fa-solid fa-chart-line"></i>
+                </div>
+                <span class="feature-text">Live Market Rates</span>
+            </a>
+
+            <a href="#weather-updates" class="feature-badge-row">
+                <div class="feature-icon-circle">
+                    <i class="fa-solid fa-cloud-sun-rain"></i>
+                </div>
+                <span class="feature-text">Weather Updates</span>
+            </a>
+
+            <a href="#direct-buyers" class="feature-badge-row">
+                <div class="feature-icon-circle">
+                    <i class="fa-solid fa-bullseye"></i>
+                </div>
+                <span class="feature-text">Direct Buyers</span>
+            </a>
+        </div>
+    </div>
+
+    <!-- =====================================
+         7 Category Icon Cards (Overlapping Hero Section with Curved Shelf)
+         ===================================== -->
+    <section class="category-cards-section">
+        <!-- Curved Shelf Cap joining Hero grass and White Cards Canvas -->
+        <div class="category-shelf-cap" aria-hidden="true">
+            <div class="category-shelf-cap-inner">
+                <svg class="category-shelf-svg-left" viewBox="0 0 48 20" preserveAspectRatio="none">
+                    <path d="M 0 20 C 18 20 26 0 48 0 L 48 20 Z" fill="#ffffff" />
+                </svg>
+                <div class="category-shelf-mid"></div>
+                <svg class="category-shelf-svg-right" viewBox="0 0 48 20" preserveAspectRatio="none">
+                    <path d="M 0 0 C 22 0 30 20 48 20 L 0 20 Z" fill="#ffffff" />
+                </svg>
+            </div>
+        </div>
+
+        <div class="category-cards-container">
+            <div class="category-cards-grid">
+
+                <!-- 1. Seeds -->
+                <a href="#seeds" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M22 38 v-7" />
+                            <path d="M22 31 C15 25 15 11 22 5 C29 11 29 25 22 31 Z" />
+                            <path d="M22 13 v18" />
+                            <path d="M18 28 C9 26 5 19 6 13 C13 12 19 18 19 27" />
+                            <path d="M10 17 l6 7" />
+                            <path d="M26 28 C35 26 39 19 38 13 C31 12 25 18 25 27" />
+                            <path d="M34 17 l-6 7" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Seeds</span>
+                </a>
+
+                <!-- 2. Fertilizers -->
+                <a href="#fertilizers" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M15 8 h14" />
+                            <path d="M16 8 l-2.5 5 h17 l-2.5 -5" />
+                            <path
+                                d="M13.5 13 C11 21 10 29 11 34 C12 36.5 15 37.5 22 37.5 C29 37.5 32 36.5 33 34 C34 29 33 21 30.5 13 Z" />
+                            <path d="M22 30 v-7" />
+                            <path d="M22 26 C19.5 25 18 22 19 20 C21 20 22 22 22 24" />
+                            <path d="M22 26 C24.5 25 26 22 25 20 C23 20 22 22 22 24" />
+                            <path d="M22 23 C22 20 20.5 18 22 17 C23.5 18 22 20 22 23" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Fertilizers</span>
+                </a>
+
+                <!-- 3. Crop Care -->
+                <a href="#crop-care" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke="#15803d" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M7 35 C14 31 30 31 37 35" />
+                            <path d="M13 38 C17 37 27 37 31 38" />
+                            <path d="M22 32 V17" />
+                            <path d="M22 24 C14 24 11 17 11 11 C17 10 22 16 22 24 Z" />
+                            <path d="M22 24 C30 24 33 17 33 11 C27 10 22 16 22 24 Z" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Crop Care</span>
+                </a>
+
+                <!-- 4. Machinery -->
+                <a href="#machinery" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <circle cx="13" cy="30" r="6.5" />
+                            <circle cx="13" cy="30" r="2.2" fill="#0284c7" />
+                            <circle cx="32" cy="32.5" r="4" />
+                            <circle cx="32" cy="32.5" r="1.5" fill="#0284c7" />
+                            <path d="M19.5 30 h8.5" />
+                            <path d="M13 23.5 v-10 h8 v13" />
+                            <path d="M21 18 h13 v11 h-4" />
+                            <path d="M30.5 18 v-7" />
+                            <path d="M16 13.5 h-6" />
+                            <path d="M24 16 l-3 -5" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Machinery</span>
+                </a>
+
+                <!-- 5. Weather -->
+                <a href="#weather" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <!-- Green Sun -->
+                            <g stroke="#15803d">
+                                <path d="M17 7 v-3.5" />
+                                <path d="M10 10 l-2.5 -2.5" />
+                                <path d="M7 17 h-3.5" />
+                                <path d="M10 24 l-2.2 2.2" />
+                                <path d="M11 15.5 A6.5 6.5 0 0 1 21 11" />
+                            </g>
+                            <!-- Blue Cloud -->
+                            <path stroke="#0284c7"
+                                d="M14 34 h18 a5.5 5.5 0 0 0 2.5 -10.4 a7 7 0 0 0 -13.2 -2.1 a5.5 5.5 0 0 0 -7.8 6.2 a5 5 0 0 0 0.5 6.3 Z" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Weather</span>
+                </a>
+
+                <!-- 6. Market Prices -->
+                <a href="#market-prices" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M9 22 L18 13 L25 17 L36 6" />
+                            <path d="M29 6 h7 v7" />
+                            <rect x="8.5" y="25" width="5.5" height="11" rx="1.2" fill="none" />
+                            <rect x="17.5" y="18" width="5.5" height="18" rx="1.2" fill="none" />
+                            <rect x="26.5" y="12" width="5.5" height="24" rx="1.2" fill="none" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Market Prices</span>
+                </a>
+
+                <!-- 7. Knowledge -->
+                <a href="#knowledge" class="category-card">
+                    <div class="category-card-icon">
+                        <svg viewBox="0 0 44 44" fill="none" stroke="#0284c7" stroke-width="2.2" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M22 8 L39 16 L22 24 L5 16 Z" />
+                            <path d="M11 20 v7.5 c0 4.5 5 8 11 8 s11 -3.5 11 -8 v-7.5" />
+                            <path d="M34 17 v12" />
+                            <circle cx="34" cy="30" r="1.8" fill="#0284c7" />
+                        </svg>
+                    </div>
+                    <span class="category-card-label">Knowledge</span>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================
+         Farmer Onboarding & Mobile App Section
+         ===================================== -->
+    <section class="onboarding-app-section">
+        <div class="onboarding-app-container">
+            <div class="onboarding-app-grid">
+
+                <!-- Left Card: Farmer Onboarding -->
+                <div class="onboarding-card">
+                    <div>
+                        <div class="onboarding-header">
+                            <h2 class="onboarding-title">Farmer Onboarding</h2>
+                            <p class="onboarding-subtitle">Join Andhra Kisan and access better opportunities</p>
+                        </div>
+
+                        <div class="onboarding-steps">
+                            <!-- Step 1 -->
+                            <div class="onboarding-step">
+                                <div class="step-num-wrap">
+                                    <div class="step-num">1</div>
+                                </div>
+                                <div class="step-info">
+                                    <h4 class="step-title">Register</h4>
+                                    <p class="step-desc">Create your <br class="desktop-br">farmer account</p>
+                                </div>
+                            </div>
+
+                            <div class="step-arrow">
+                                <span class="step-line"></span>
+                                <svg class="step-chevron-svg" viewBox="0 0 8 12" fill="none">
+                                    <path d="M1.5 1.5 L6 6 L1.5 10.5" stroke="#94a3b8" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="onboarding-step">
+                                <div class="step-num-wrap">
+                                    <div class="step-num">2</div>
+                                </div>
+                                <div class="step-info">
+                                    <h4 class="step-title">Verify</h4>
+                                    <p class="step-desc">Verify your <br class="desktop-br">farmer details</p>
+                                </div>
+                            </div>
+
+                            <div class="step-arrow">
+                                <span class="step-line"></span>
+                                <svg class="step-chevron-svg" viewBox="0 0 8 12" fill="none">
+                                    <path d="M1.5 1.5 L6 6 L1.5 10.5" stroke="#94a3b8" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="onboarding-step">
+                                <div class="step-num-wrap">
+                                    <div class="step-num">3</div>
+                                </div>
+                                <div class="step-info">
+                                    <h4 class="step-title">List Your Produce</h4>
+                                    <p class="step-desc">Add crops and <br class="desktop-br">available quantity</p>
+                                </div>
+                            </div>
+
+                            <div class="step-arrow">
+                                <span class="step-line"></span>
+                                <svg class="step-chevron-svg" viewBox="0 0 8 12" fill="none">
+                                    <path d="M1.5 1.5 L6 6 L1.5 10.5" stroke="#94a3b8" stroke-width="1.8"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="onboarding-step">
+                                <div class="step-num-wrap">
+                                    <div class="step-num">4</div>
+                                </div>
+                                <div class="step-info">
+                                    <h4 class="step-title">Start Selling</h4>
+                                    <p class="step-desc">Reach direct buyers <br class="desktop-br">and get better
+                                        prices</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#register" class="btn-register-farmer">
+                        Register as a Farmer &rarr;
+                    </a>
+                </div>
+
+                <!-- Right Card: Mobile App -->
+                <div class="app-card">
+                    <div class="app-content">
+                        <div>
+                            <div class="app-header">
+                                <!-- Faceted Triangle Emblem SVG -->
+                                <svg class="app-emblem-svg" viewBox="0 0 36 36" fill="none">
+                                    <path d="M6 6 L30 18 L6 30 Z" fill="#15803d" />
+                                    <path d="M6 6 L18 18 L6 22 Z" fill="#0f622e" />
+                                    <path d="M14 14 L24 18 L14 22 Z" fill="#4ade80" />
+                                </svg>
+                                <div class="app-title-group">
+                                    <span class="app-title-kisan">Andhra Kisan</span>
+                                    <span class="app-title-mobile">Mobile App</span>
+                                </div>
+                            </div>
+                            <p class="app-subtitle">All farming solutions in your hand</p>
+
+                            <ul class="app-features-list">
+                                <li class="app-feature-item">
+                                    <svg class="app-check-svg" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="10" fill="#15803d" />
+                                        <path d="M6 10 L8.8 12.8 L14.5 7.2" stroke="#ffffff" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span class="app-feature-text">Live Market Prices</span>
+                                </li>
+                                <li class="app-feature-item">
+                                    <svg class="app-check-svg" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="10" fill="#15803d" />
+                                        <path d="M6 10 L8.8 12.8 L14.5 7.2" stroke="#ffffff" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span class="app-feature-text">Weather Updates</span>
+                                </li>
+                                <li class="app-feature-item">
+                                    <svg class="app-check-svg" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="10" fill="#15803d" />
+                                        <path d="M6 10 L8.8 12.8 L14.5 7.2" stroke="#ffffff" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span class="app-feature-text">Advisory &amp; Alerts</span>
+                                </li>
+                                <li class="app-feature-item">
+                                    <svg class="app-check-svg" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="10" fill="#15803d" />
+                                        <path d="M6 10 L8.8 12.8 L14.5 7.2" stroke="#ffffff" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span class="app-feature-text">Buy &amp; Sell Produce</span>
+                                </li>
+                                <li class="app-feature-item">
+                                    <svg class="app-check-svg" viewBox="0 0 20 20" fill="none">
+                                        <circle cx="10" cy="10" r="10" fill="#15803d" />
+                                        <path d="M6 10 L8.8 12.8 L14.5 7.2" stroke="#ffffff" stroke-width="2"
+                                            stroke-linecap="round" stroke-linejoin="round" />
+                                    </svg>
+                                    <span class="app-feature-text">Learn &amp; Grow</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="app-stores-row">
+                            <a href="#googleplay" class="store-badge">
+                                <div class="store-badge-icon">
+                                    <svg viewBox="0 0 24 24" width="16" height="16">
+                                        <path fill="#EA4335"
+                                            d="M3.6 1.8L13.8 12 3.6 22.2c-.4-.4-.6-1-.6-1.7V3.5c0-.7.2-1.3.6-1.7z" />
+                                        <path fill="#FBBC04"
+                                            d="M17.2 8.6L13.8 12l3.4 3.4 3.9-2.2c1.1-.6 1.1-1.7 0-2.3l-3.9-2.3z" />
+                                        <path fill="#4285F4"
+                                            d="M3.6 22.2l10.2-10.2 3.4 3.4-11.7 6.6c-.9.5-1.5.4-1.9.2z" />
+                                        <path fill="#34A853" d="M3.6 1.8c.4-.2 1-.3 1.9.2l11.7 6.6-3.4 3.4L3.6 1.8z" />
+                                    </svg>
+                                </div>
+                                <div class="store-text-group">
+                                    <span class="store-sub">GET IT ON</span>
+                                    <span class="store-main">Google Play</span>
+                                </div>
+                            </a>
+                            <a href="#appstore" class="store-badge">
+                                <div class="store-badge-icon">
+                                    <svg viewBox="0 0 24 24" width="16" height="16" fill="#ffffff">
+                                        <path
+                                            d="M18.7 19.5c-.8 1.2-1.7 2.4-3 2.4-1.3 0-1.7-.8-3.2-.8-1.5 0-2 .8-3.2.8-1.3 0-2.3-1.2-3.1-2.4-1.7-2.4-3-6.9-1.2-9.9.9-1.5 2.5-2.5 4.2-2.5 1.3 0 2.5.9 3.3.9.8 0 2.3-1.1 3.9-.9 1.4.1 2.6.6 3.4 1.8-3.1 1.9-2.6 6 0 7.3-.6 1.3-1.4 2.8-2.3 4.2zM15.4 6.7c.6-.8 1.1-1.9.9-3-.9.1-2 .6-2.6 1.4-.6.7-1.1 1.8-.9 2.9 1 0 2-.5 2.6-1.3z" />
+                                    </svg>
+                                </div>
+                                <div class="store-text-group">
+                                    <span class="store-sub">Download on the</span>
+                                    <span class="store-main">App Store</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================
+         Farmer Marketplace Section
+         ===================================== -->
+    <section class="marketplace-section">
+        <div class="marketplace-container">
+            <div class="marketplace-card-wrapper">
+
+                <!-- Marketplace Header -->
+                <div class="marketplace-header">
+                    <div>
+                        <h2 class="marketplace-title">Farmer Marketplace</h2>
+                        <p class="marketplace-subtitle">List your produce and connect directly with buyers, traders and
+                            businesses.</p>
+                    </div>
+                    <a href="#marketplace" class="marketplace-view-all">
+                        View All &rarr;
+                    </a>
+                </div>
+
+                <!-- Carousel / Crop Cards Wrapper -->
+                <div class="marketplace-carousel-wrapper">
+                    <button class="carousel-arrow carousel-arrow-prev" id="marketPrevBtn" aria-label="Previous crops">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0f2744" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="15 18 9 12 15 6"></polyline>
+                        </svg>
+                    </button>
+
+                    <div class="marketplace-viewport" id="marketCarouselViewport">
+                        <div class="marketplace-track" id="marketCardsTrack">
+
+                            <!-- 1. Paddy -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_paddy.jpg" alt="Paddy (BPT 5204)" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Paddy (BPT 5204)</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 2,080</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Guntur, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 2. Red Chilli -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_red_chilli.jpg" alt="Red Chilli" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Red Chilli</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 18,500</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Prakasam, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 3. Tomato -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_tomato.jpg" alt="Tomato" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Tomato</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 1,250</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Anantapur, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 4. Turmeric -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_turmeric.jpg" alt="Turmeric" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Turmeric</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 12,000</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Kadapa, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 5. Green Chilli -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_green_chilli.jpg" alt="Green Chilli" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Green Chilli</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 2,500</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>East Godavari, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 6. Mango (Totapuri) -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_mango.jpg" alt="Mango (Totapuri)" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Mango (Totapuri)</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 1,800</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Chittoor, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 7. Capsicum -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_capsicum.jpg" alt="Capsicum" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Capsicum</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 3,400</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Visakhapatnam, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                            <!-- 8. Onions -->
+                            <div class="market-crop-card">
+                                <div class="crop-img-wrap">
+                                    <img src="assets/market_onions.jpg" alt="Onions" class="crop-img" />
+                                </div>
+                                <div class="crop-details">
+                                    <h4 class="crop-name">Onions</h4>
+                                    <div class="crop-price">
+                                        <span class="price-val">&#8377; 2,400</span>
+                                        <span class="price-unit">/ Quintal</span>
+                                    </div>
+                                    <div class="crop-location">
+                                        <svg viewBox="0 0 24 24" width="12" height="12" fill="#64748b"
+                                            style="flex-shrink: 0;">
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
+                                        </svg>
+                                        <span>Kurnool, Andhra Pradesh</span>
+                                    </div>
+                                    <a href="#sell" class="btn-sell-now">Sell Now</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button class="carousel-arrow carousel-arrow-next" id="marketNextBtn" aria-label="Next crops">
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#0f2744" stroke-width="2.6"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================
+         Quick Agricultural Services Section
+         ===================================== -->
+    <section class="quick-services-section">
+        <div class="quick-services-container">
+            <div class="quick-services-grid">
+
+                <!-- 1. Live Market Prices -->
+                <div class="service-feature-card service-card-green">
+                    <div class="service-icon-circle service-icon-green">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="14" width="4" height="7" rx="1"></rect>
+                            <rect x="10" y="10" width="4" height="11" rx="1"></rect>
+                            <rect x="17" y="6" width="4" height="15" rx="1"></rect>
+                            <path d="M3 10l6-5 4 4 8-6"></path>
+                            <polyline points="17 3 21 3 21 7"></polyline>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title service-title-green">Live Market Prices</h3>
+                        <p class="service-desc">Get real-time mandi prices across Andhra Pradesh</p>
+                        <a href="#market-prices" class="service-action-link">
+                            <span>View Prices</span>
+                            <span class="service-link-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 2. Weather Updates -->
+                <div class="service-feature-card service-card-blue">
+                    <div class="service-icon-circle service-icon-blue">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <line x1="12" y1="2" x2="12" y2="4"></line>
+                            <line x1="12" y1="20" x2="12" y2="22"></line>
+                            <line x1="4.93" y1="4.93" x2="6.34" y2="6.34"></line>
+                            <line x1="17.66" y1="17.66" x2="19.07" y2="19.07"></line>
+                            <line x1="2" y1="12" x2="4" y2="12"></line>
+                            <line x1="20" y1="12" x2="22" y2="12"></line>
+                            <line x1="4.93" y1="19.07" x2="6.34" y2="17.66"></line>
+                            <line x1="17.66" y1="6.34" x2="19.07" y2="4.93"></line>
+                            <path d="M16 16H8a3 3 0 0 1-1-5.8 4 4 0 0 1 7.8-1.2A3 3 0 0 1 16 16z"></path>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title service-title-blue">Weather Updates</h3>
+                        <p class="service-desc">Stay informed with accurate weather forecasts</p>
+                        <a href="#weather" class="service-action-link">
+                            <span>Check Weather</span>
+                            <span class="service-link-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 3. Expert Advisory -->
+                <div class="service-feature-card service-card-emerald">
+                    <div class="service-icon-circle service-icon-emerald">
+                        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="12" cy="7" r="4"></circle>
+                            <path d="M5.5 21v-2a6.5 6.5 0 0 1 13 0v2"></path>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title service-title-emerald">Expert Advisory</h3>
+                        <p class="service-desc">Guidance from agriculture experts and institutions</p>
+                        <a href="#advisory" class="service-action-link">
+                            <span>Read More</span>
+                            <span class="service-link-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- 4. Knowledge Hub -->
+                <div class="service-feature-card service-card-amber">
+                    <div class="service-icon-circle service-icon-amber">
+                        <svg viewBox="0 0 24 24" width="23" height="23" fill="none" stroke="#ffffff" stroke-width="2.2"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 10v6M2 10l10-5 10 5-10 5z"></path>
+                            <path d="M6 12v5c3 3 9 3 12 0v-5"></path>
+                        </svg>
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title service-title-amber">Knowledge Hub</h3>
+                        <p class="service-desc">Learn modern farming techniques and best practices</p>
+                        <a href="#knowledge" class="service-action-link">
+                            <span>Explore Articles</span>
+                            <span class="service-link-arrow">&rarr;</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================
+         Empowering Farmers, Enriching India Banner Section
+         ===================================== -->
+    <section class="empower-banner-section" id="empower-video-section">
+        <div class="empower-banner-container">
+            <div class="empower-banner-card">
+                <!-- Background Video with Overlay -->
+                <video class="empower-banner-video" autoplay loop muted playsinline webkit-playsinline preload="auto"
+                    poster="assets/empower_andhra_farmer.jpg">
+                    <source src="assets/empower_andhra_farmer.mp4" type="video/mp4">
+                </video>
+                <div class="empower-banner-overlay"></div>
+
+                <div class="empower-banner-content">
+                    <h2 class="empower-banner-title">Empowering Farmers. Enriching Andhra.</h2>
+                </div>
+
+                <!-- 4 Horizontal Feature Badges with White Circular Icons -->
+                <div class="empower-pill-row">
+                    <!-- 1. Better Income -->
+                    <div class="empower-pill-item">
+                        <div class="empower-pill-circle">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#16a34a"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M20.5 10.5v9c0 .466 0 .699-.076.883a1 1 0 0 1-.541.54C19.699 21 19.466 21 19 21s-.699 0-.883-.076a1 1 0 0 1-.54-.541c-.077-.184-.077-.417-.077-.883v-9c0-.466 0-.699.076-.883a1 1 0 0 1 .541-.54C18.301 9 18.534 9 19 9s.699 0 .883.076a1 1 0 0 1 .54.541c.077.184.077.417.077.883Z">
+                                </path>
+                                <path d="M16.5 3h3v3"></path>
+                                <path d="M19 3.5s-4 5-14.5 8.5"></path>
+                                <path
+                                    d="M13.5 14v5.5c0 .466 0 .699-.076.883a1 1 0 0 1-.541.54C12.699 21 12.466 21 12 21s-.699 0-.883-.076a1 1 0 0 1-.54-.541c-.077-.184-.077-.417-.077-.883V14c0-.466 0-.699.076-.883a1 1 0 0 1 .541-.54c.184-.077.417-.077.883-.077s.699 0 .883.076a1 1 0 0 1 .54.541c.077.184.077.417.077.883Zm-7 2.5v3c0 .466 0 .699-.076.883a1 1 0 0 1-.541.54C5.699 21 5.466 21 5 21s-.699 0-.883-.076a1 1 0 0 1-.54-.541c-.077-.184-.077-.417-.077-.883v-3c0-.466 0-.699.076-.883a1 1 0 0 1 .541-.54C4.301 15 4.534 15 5 15s.699 0 .883.076a1 1 0 0 1 .54.541c.077.184.077.417.077.883Z">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="empower-pill-label">Better Income</span>
+                    </div>
+
+                    <!-- 2. Sustainable Farming -->
+                    <div class="empower-pill-item">
+                        <div class="empower-pill-circle">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#16a34a"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M19.992 21a9.98 9.98 0 0 0-8-4a9.98 9.98 0 0 0-8 4"></path>
+                                <path
+                                    d="m16.492 7.5l-.964.964c-.597.597-.895.895-1.158 1.205a10 10 0 0 0-2.345 5.66c-.033.406-.033.828-.033 1.671">
+                                </path>
+                                <path
+                                    d="M18.992 9.446q.245-.167.461-.383c1.885-1.885 1.508-6.032 1.508-6.032s-4.147-.377-6.032 1.508a3.2 3.2 0 0 0 0 4.524">
+                                </path>
+                                <path
+                                    d="M7.492 7.5l.965.964c.596.597.894.895 1.157 1.205a10 10 0 0 1 2.345 5.66c.033.406.033.828.033 1.671">
+                                </path>
+                                <path
+                                    d="M9.055 9.063a3.2 3.2 0 0 1-4.524 0C2.646 7.178 3.023 3.031 3.023 3.031s4.147-.377 6.032 1.508q.216.217.383.461">
+                                </path>
+                            </svg>
+                        </div>
+                        <span class="empower-pill-label">Sustainable Farming</span>
+                    </div>
+
+                    <!-- 3. Modern Technology -->
+                    <div class="empower-pill-item">
+                        <div class="empower-pill-circle">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#16a34a"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="6.5" cy="16.5" r="4.5"></circle>
+                                <circle cx="19" cy="18" r="3"></circle>
+                                <path
+                                    d="M2 10.5a7.5 7.5 0 0 1 11.995 6.287c-.023.604-.034.907.113 1.06s.42.153.965.153H16m-3-9l3.106.582c2.34.44 3.511.659 4.202 1.492c.692.833.692 2.03.692 4.426">
+                                </path>
+                                <path d="M20 12h-1"></path>
+                                <path d="M13 12.5V9.587q0-.587-.169-1.15L11.5 3"></path>
+                                <path d="M4 9V3"></path>
+                                <path d="M3 3h10"></path>
+                                <path d="m5 6.5V8a2 2 0 0 1 2-2"></path>
+                                <path d="M7 9V3"></path>
+                            </svg>
+                        </div>
+                        <span class="empower-pill-label">Modern Technology</span>
+                    </div>
+
+                    <!-- 4. Stronger Communities -->
+                    <div class="empower-pill-item">
+                        <div class="empower-pill-circle">
+                            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="#16a34a"
+                                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M18 21c0-1.943 0-2.915-.305-3.677c-.321-.802-.873-1.453-1.564-1.847c-.658-.374-1.63-.476-3.211-.472L11.08 15c-1.58 0-2.533.092-3.183.453c-.713.396-1.277 1.06-1.601 1.886C6 18.09 6 19.06 6 21">
+                                </path>
+                                <path
+                                    d="M7 12c-1.662.061-2.493.092-3.133.453c-.701.396-1.256 1.06-1.576 1.886c-.29.752-.29 1.721-.29 3.661">
+                                </path>
+                                <path
+                                    d="M17 12c1.675.066 2.513.098 3.16.472c.68.394 1.224 1.046 1.54 1.848c.3.763.3 1.735.3 3.68">
+                                </path>
+                                <path d="M13 7a3 3 0 1 1-6 0a3 3 0 0 1 6 0"></path>
+                                <path d="M6 3.764A3 3 0 1 0 6.341 8.5"></path>
+                                <path d="M18 3.764A3 3 0 1 1 17.661 8.5"></path>
+                            </svg>
+                        </div>
+                        <span class="empower-pill-label">Stronger Communities</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Buyers / Traders / Businesses Section -->
+    <section class="buyers-section">
+        <div class="buyers-container">
+            <div class="buyers-card-wrapper">
+                <div class="buyers-header">
+                    <div class="buyers-header-text">
+                        <h2 class="buyers-title">For Buyers / Traders / Businesses</h2>
+                        <p class="buyers-subtitle">Source quality agricultural produce directly from farmers across
+                            Andhra Pradesh.</p>
+                    </div>
+                    <a href="#register-buyer" class="btn-register-buyer">
+                        Register as Buyer &rarr;
+                    </a>
+                </div>
+
+                <div class="buyers-grid">
+                    <!-- 1. Register as Buyer -->
+                    <div class="buyer-feature-card">
+                        <div class="buyer-icon-box">
+                            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#16a34a"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="9" cy="7" r="4"></circle>
+                                <line x1="19" y1="8" x2="19" y2="14"></line>
+                                <line x1="22" y1="11" x2="16" y2="11"></line>
+                            </svg>
+                        </div>
+                        <div class="buyer-card-info">
+                            <h3 class="buyer-card-title">Register as Buyer</h3>
+                            <p class="buyer-card-desc">Create your business account</p>
+                        </div>
+                    </div>
+
+                    <!-- 2. Browse Produce -->
+                    <div class="buyer-feature-card">
+                        <div class="buyer-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#16a34a"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="20" r="1.5"></circle>
+                                <circle cx="18" cy="20" r="1.5"></circle>
+                                <path d="M3 4h2.5l2 10h11.5l2-8H6"></path>
+                                <line x1="10" y1="9" x2="10" y2="13"></line>
+                                <line x1="14" y1="9" x2="14" y2="13"></line>
+                            </svg>
+                        </div>
+                        <div class="buyer-card-info">
+                            <h3 class="buyer-card-title">Browse Produce</h3>
+                            <p class="buyer-card-desc">Search from verified farmers</p>
+                        </div>
+                    </div>
+
+                    <!-- 3. Place Orders -->
+                    <div class="buyer-feature-card">
+                        <div class="buyer-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#16a34a"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                                <polyline points="14 2 14 8 20 8"></polyline>
+                                <line x1="8" y1="12" x2="16" y2="12"></line>
+                                <line x1="8" y1="16" x2="13" y2="16"></line>
+                            </svg>
+                        </div>
+                        <div class="buyer-card-info">
+                            <h3 class="buyer-card-title">Place Orders</h3>
+                            <p class="buyer-card-desc">Direct purchase & negotiation</p>
+                        </div>
+                    </div>
+
+                    <!-- 4. Reliable Supply -->
+                    <div class="buyer-feature-card">
+                        <div class="buyer-icon-box">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="#16a34a"
+                                stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 21s-7-5.5-7-11a7 7 0 1 1 14 0c0 5.5-7 11-7 11z"></path>
+                                <circle cx="12" cy="10" r="3"></circle>
+                            </svg>
+                        </div>
+                        <div class="buyer-card-info">
+                            <h3 class="buyer-card-title">Reliable Supply</h3>
+                            <p class="buyer-card-desc">Quality and transparent trade</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ending Impact Stats Bar Section -->
+    <section class="stats-bar-section">
+        <div class="stats-bar-container">
+            <div class="stats-bar-grid">
+                <!-- 1. Registered Farmers -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number font-serif">50,000+</span>
+                        <span class="stat-label font-serif">Registered Farmers</span>
+                    </div>
+                </div>
+
+                <!-- 2. Hubs & Mandis -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap">
+                        <i class="fa-solid fa-store"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number font-serif">200+</span>
+                        <span class="stat-label font-serif">Hubs & Mandis</span>
+                    </div>
+                </div>
+
+                <!-- 3. Products Listed -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap">
+                        <i class="fa-solid fa-seedling"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number font-serif">1000+</span>
+                        <span class="stat-label font-serif">Products Listed</span>
+                    </div>
+                </div>
+
+                <!-- 4. Buyers & Traders -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap">
+                        <i class="fa-solid fa-handshake"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number font-serif">500+</span>
+                        <span class="stat-label font-serif">Buyers & Traders</span>
+                    </div>
+                </div>
+
+                <!-- 5. Andhra Focused -->
+                <div class="stat-item">
+                    <div class="stat-icon-wrap">
+                        <i class="fa-solid fa-location-dot"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-number font-serif">100%</span>
+                        <span class="stat-label font-serif">Andhra Focused</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Andhra Kisan Main Footer -->
+    <footer class="footer-section">
+        <div class="footer-container">
+            <!-- Upper 5 Columns -->
+            <div class="footer-main-grid">
+                <!-- Column 1: Brand Box with White Background (per request) -->
+                <div class="footer-col">
+                    <div class="footer-brand-box">
+                        <div class="footer-brand-header">
+                            <img src="assets/logo-clean.png" alt="Andhra Kisan Logo" class="footer-brand-logo" />
+                            <div class="footer-brand-text-col">
+                                <div class="footer-brand-name">
+                                    <span class="footer-text-andhra">Andhra</span>
+                                    <span class="footer-text-kisan">Kisan</span>
+                                </div>
+                                <div class="footer-brand-tagline">Empowering Farmers. Enriching Andhra.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-col footer-col-divider-left">
+                    <h4 class="footer-col-title">Quick Links</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="#home" class="footer-nav-link">Home</a></li>
+                        <li><a href="#about-us" class="footer-nav-link">About Us</a></li>
+                        <li><a href="#services" class="footer-nav-link">Services</a></li>
+                        <li><a href="#market-prices" class="footer-nav-link">Market Prices</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Support -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Support</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="#farmer-registration" class="footer-nav-link">Farmer Registration</a></li>
+                        <li><a href="#buyer-registration" class="footer-nav-link">Buyer Registration</a></li>
+                        <li><a href="#help-center" class="footer-nav-link">Help Center</a></li>
+                        <li><a href="#contact-us" class="footer-nav-link">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Resources -->
+                <div class="footer-col footer-col-divider-left">
+                    <h4 class="footer-col-title">Resources</h4>
+                    <ul class="footer-nav-list">
+                        <li><a href="#knowledge" class="footer-nav-link">Knowledge Hub</a></li>
+                        <li><a href="#weather" class="footer-nav-link">Weather</a></li>
+                        <li><a href="#news" class="footer-nav-link">News & Events</a></li>
+                        <li><a href="#faq" class="footer-nav-link">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 5: Follow Us -->
+                <div class="footer-col">
+                    <h4 class="footer-col-title">Follow Us</h4>
+                    <div class="footer-social-row">
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn social-fb" aria-label="Facebook">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn social-insta" aria-label="Instagram">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="https://youtube.com" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn social-yt" aria-label="YouTube">
+                            <i class="fa-brands fa-youtube"></i>
+                        </a>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn social-tw" aria-label="Twitter">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                            class="footer-social-btn social-li" aria-label="LinkedIn">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bottom Contact & Slogan Strip -->
+            <div class="footer-bottom-bar">
+                <div class="footer-contacts-strip">
+                    <a href="https://www.andhrakisan.com" class="footer-contact-item">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>www.andhrakisan.com</span>
+                    </a>
+                    <span class="footer-contact-sep">|</span>
+                    <a href="mailto:info@andhrakisan.com" class="footer-contact-item">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>info@andhrakisan.com</span>
+                    </a>
+                    <span class="footer-contact-sep">|</span>
+                    <a href="tel:+919100012345" class="footer-contact-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 91000 12345</span>
+                    </a>
+                </div>
+
+                <div class="footer-mission-badge">
+                    <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="#ffffff" stroke-width="2.3"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M12 20v-8"></path>
+                        <path d="M12 12c-3-3.8-7-3.8-9-1.2 0 4.8 4.8 6.4 9 5.4"></path>
+                        <path d="M12 12c3-3.8 7-3.8 9-1.2 0 4.8-4.8 6.4-9 5.4"></path>
+                        <path d="M5 21a7 7 0 0 1 14 0"></path>
+                    </svg>
+                    <span>Supporting Farmers. Strengthening Agriculture. Building a Better Andhra.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Video Modal Dialog -->
+    <div class="video-modal-backdrop" id="videoModalBackdrop">
+        <div class="video-modal-dialog">
+            <div class="video-modal-header">
+                <div class="video-modal-title">
+                    <i class="fa-solid fa-circle-play"></i>
+                    <span>Andhra Kisan - Platform Overview</span>
+                </div>
+                <button class="video-close-btn" id="closeVideoModal" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="video-modal-body">
+                <div class="video-mock-player" title="Click to Play">
+                    <i class="fa-solid fa-play"></i>
+                </div>
+                <h3 style="font-size: 18px; margin-bottom: 8px;">How Andhra Kisan Empowers Farmers</h3>
+                <p style="font-size: 13.5px; color: #94a3b8; max-width: 480px;">
+                    Watch how 50,000+ farmers across Andhra Pradesh get real-time APMC mandi prices, verified input
+                    supplies, weather alerts, and sell directly to buyers.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Navbar Services Dropdown Toggle (Expand & Contract on Click)
+        const servicesNavItem = document.querySelector('.nav-item.has-dropdown');
+        if (servicesNavItem) {
+            const servicesLink = servicesNavItem.querySelector('.nav-link');
+            if (servicesLink) {
+                servicesLink.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    const isOpen = servicesNavItem.classList.toggle('open');
+                    servicesLink.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+                });
+            }
+
+            // Close dropdown when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!servicesNavItem.contains(e.target)) {
+                    servicesNavItem.classList.remove('open');
+                    if (servicesLink) servicesLink.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Close dropdown when clicking any dropdown option link
+            const dropdownLinks = servicesNavItem.querySelectorAll('.dropdown-item');
+            dropdownLinks.forEach((item) => {
+                item.addEventListener('click', () => {
+                    servicesNavItem.classList.remove('open');
+                    if (servicesLink) servicesLink.setAttribute('aria-expanded', 'false');
+                });
+            });
+        }
+
+        // Watch Video CTA -> smooth scroll to "Empowering Farmers. Enriching Andhra." section and play video
+        const watchVideoBtn = document.getElementById('openVideoBtn') || document.getElementById('openVideoModal');
+        if (watchVideoBtn) {
+            watchVideoBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const videoSection = document.getElementById('empower-video-section');
+                if (videoSection) {
+                    videoSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    const videoEl = videoSection.querySelector('video');
+                    if (videoEl) {
+                        videoEl.play().catch(() => { });
+                    }
+                }
+            });
+        }
+
+        // Optional Video Modal fallback interactivity (if used elsewhere)
+        const modalCloseBtn = document.getElementById('closeVideoModal');
+        const modalBackdrop = document.getElementById('videoModalBackdrop');
+
+        if (modalCloseBtn && modalBackdrop) {
+            modalCloseBtn.addEventListener('click', () => {
+                modalBackdrop.classList.remove('active');
+            });
+
+            modalBackdrop.addEventListener('click', (e) => {
+                if (e.target === modalBackdrop) {
+                    modalBackdrop.classList.remove('active');
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) {
+                    modalBackdrop.classList.remove('active');
+                }
+            });
+        }
+
+        // Mobile Hamburger Menu Toggle
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        if (mobileMenuToggle && navMenu) {
+            mobileMenuToggle.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const isActive = navMenu.classList.toggle('active');
+                mobileMenuToggle.setAttribute('aria-expanded', isActive ? 'true' : 'false');
+                const icon = mobileMenuToggle.querySelector('i');
+                if (icon) {
+                    if (isActive) {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                    } else {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                }
+            });
+
+            // Close mobile menu when clicking any direct nav link or register button
+            navMenu.querySelectorAll('.nav-link:not(#servicesDropdownLink), .dropdown-item, .btn-register-mobile').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                    const icon = mobileMenuToggle.querySelector('i');
+                    if (icon) {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            });
+
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', (e) => {
+                if (!navMenu.contains(e.target) && !mobileMenuToggle.contains(e.target)) {
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                        const icon = mobileMenuToggle.querySelector('i');
+                        if (icon) {
+                            icon.classList.remove('fa-xmark');
+                            icon.classList.add('fa-bars');
+                        }
+                    }
+                }
+            });
+        }
+
+        // =====================================
+        // Farmer Marketplace Circular Carousel
+        // =====================================
+        (function initMarketplaceCarousel() {
+            const track = document.getElementById('marketCardsTrack');
+            const viewport = document.getElementById('marketCarouselViewport');
+            const prevBtn = document.getElementById('marketPrevBtn');
+            const nextBtn = document.getElementById('marketNextBtn');
+
+            if (!track || !viewport || !prevBtn || !nextBtn) return;
+
+            const originalCards = Array.from(track.children);
+            const count = originalCards.length; // 8 crop cards
+            if (count === 0) return;
+
+            // Clone cards at end and start for seamless circular motion
+            originalCards.forEach((card, i) => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute('data-clone', 'end-' + i);
+                track.appendChild(clone);
+            });
+
+            originalCards.slice().reverse().forEach((card, i) => {
+                const clone = card.cloneNode(true);
+                clone.setAttribute('data-clone', 'start-' + i);
+                track.insertBefore(clone, track.firstChild);
+            });
+
+            // Starting index is count (pointing to first original card)
+            let currentIndex = count;
+            let isAnimating = false;
+            let animFallbackTimer = null;
+
+            function getStepDistance() {
+                const firstCard = track.children[0];
+                if (!firstCard) return 0;
+                const rect = firstCard.getBoundingClientRect();
+                const style = window.getComputedStyle(track);
+                const gap = parseFloat(style.gap) || 16;
+                return rect.width + gap;
+            }
+
+            function setPosition(animate = true) {
+                const targetCard = track.children[currentIndex];
+                if (!targetCard) return;
+                const offset = targetCard.offsetLeft;
+                if (animate) {
+                    track.style.transition = 'transform 0.4s cubic-bezier(0.22, 1, 0.36, 1)';
+                } else {
+                    track.style.transition = 'none';
+                }
+                track.style.transform = `translateX(-${offset}px)`;
+            }
+
+            // Initial positioning
+            setPosition(false);
+            window.addEventListener('load', () => setPosition(false));
+            setTimeout(() => setPosition(false), 50);
+
+            function handleTransitionEnd() {
+                isAnimating = false;
+                clearTimeout(animFallbackTimer);
+
+                // Scrolled past original cards into end clones -> reset to originals
+                if (currentIndex >= count * 2) {
+                    currentIndex -= count;
+                    setPosition(false);
+                }
+                // Scrolled before original cards into start clones -> reset to originals
+                else if (currentIndex < count) {
+                    currentIndex += count;
+                    setPosition(false);
+                }
+            }
+
+            track.addEventListener('transitionend', (e) => {
+                if (e.target === track && e.propertyName === 'transform') {
+                    handleTransitionEnd();
+                }
+            });
+
+            function nextSlide() {
+                if (isAnimating) return;
+                isAnimating = true;
+                currentIndex++;
+                setPosition(true);
+
+                clearTimeout(animFallbackTimer);
+                animFallbackTimer = setTimeout(handleTransitionEnd, 450);
+            }
+
+            function prevSlide() {
+                if (isAnimating) return;
+                isAnimating = true;
+                currentIndex--;
+                setPosition(true);
+
+                clearTimeout(animFallbackTimer);
+                animFallbackTimer = setTimeout(handleTransitionEnd, 450);
+            }
+
+            // Click Right Arrow (Next)
+            nextBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                nextSlide();
+            });
+
+            // Click Left Arrow (Prev)
+            prevBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                prevSlide();
+            });
+
+            // Right-click support: when user right-clicks on the carousel track/cards,
+            // advance cards in circular motion without opening browser context menu
+            viewport.addEventListener('contextmenu', (e) => {
+                if (!e.target.closest('a.btn-sell-now, button')) {
+                    e.preventDefault();
+                    nextSlide();
+                }
+            });
+
+            // Touch swipe gesture support
+            let startX = 0;
+            let currentDelta = 0;
+            let isDragging = false;
+
+            viewport.addEventListener('touchstart', (e) => {
+                startX = e.touches[0].clientX;
+                currentDelta = 0;
+                isDragging = true;
+            }, { passive: true });
+
+            viewport.addEventListener('touchmove', (e) => {
+                if (!isDragging) return;
+                currentDelta = e.touches[0].clientX - startX;
+            }, { passive: true });
+
+            viewport.addEventListener('touchend', () => {
+                if (!isDragging) return;
+                isDragging = false;
+                if (currentDelta < -40) {
+                    nextSlide();
+                } else if (currentDelta > 40) {
+                    prevSlide();
+                }
+            });
+
+            // Keyboard navigation
+            viewport.setAttribute('tabindex', '0');
+            viewport.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    nextSlide();
+                } else if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    prevSlide();
+                }
+            });
+
+            // Window resize adjustment
+            let resizeTimer = null;
+            window.addEventListener('resize', () => {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    setPosition(false);
+                }, 60);
+            });
+        })();
+    </script>
+
+    <!-- Google Translate Host Element (positioned offscreen via CSS) -->
+    <div id="google_translate_element" aria-hidden="true"></div>
+
+    <!-- Language Switch & Google Translate System -->
+    <script>
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                includedLanguages: 'te',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        (function initLanguageSwitch() {
+            const langBtnEn = document.getElementById('langBtnEn');
+            const langBtnTe = document.getElementById('langBtnTe');
+
+            function getCookie(name) {
+                const value = `; ${document.cookie}`;
+                const parts = value.split(`; ${name}=`);
+                if (parts.length === 2) return parts.pop().split(';').shift();
+                return null;
+            }
+
+            function clearGoogleTransCookie() {
+                const domain = window.location.hostname;
+                const pathParts = window.location.pathname.split('/');
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+                document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC;';
+                if (pathParts.length > 1) {
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/' + pathParts[1] + ';';
+                }
+                if (domain && domain !== 'localhost' && !domain.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+                    document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + domain + '; path=/;';
+                    const parts = domain.split('.');
+                    if (parts.length > 1) {
+                        const rootDomain = '.' + parts.slice(-2).join('.');
+                        document.cookie = 'googtrans=; expires=Thu, 01 Jan 1970 00:00:00 UTC; domain=' + rootDomain + '; path=/;';
+                    }
+                }
+            }
+
+            function setGoogleTransCookie(lang) {
+                if (lang === 'en') {
+                    clearGoogleTransCookie();
+                } else {
+                    const cookieVal = '/en/' + lang;
+                    const domain = window.location.hostname;
+                    document.cookie = 'googtrans=' + cookieVal + '; path=/;';
+                    if (domain && domain !== 'localhost' && !domain.match(/^\d+\.\d+\.\d+\.\d+$/)) {
+                        const parts = domain.split('.');
+                        if (parts.length > 1) {
+                            const rootDomain = '.' + parts.slice(-2).join('.');
+                            document.cookie = 'googtrans=' + cookieVal + '; domain=' + rootDomain + '; path=/;';
+                        }
+                    }
+                }
+            }
+
+            function applyLanguageUI(lang) {
+                if (lang === 'te') {
+                    document.body.classList.add('lang-te');
+                    if (langBtnTe) langBtnTe.classList.add('active');
+                    if (langBtnEn) langBtnEn.classList.remove('active');
+                } else {
+                    document.body.classList.remove('lang-te');
+                    if (langBtnEn) langBtnEn.classList.add('active');
+                    if (langBtnTe) langBtnTe.classList.remove('active');
+                }
+            }
+
+            function restoreOriginalEnglish() {
+                // Click Google Translate's native "Show original" (:1.restore) button
+                // so the original DOM is restored cleanly instead of reverse-translating into English
+                const iframes = document.querySelectorAll('iframe.skiptranslate, iframe.goog-te-banner-frame');
+                for (let i = 0; i < iframes.length; i++) {
+                    try {
+                        const doc = iframes[i].contentDocument || iframes[i].contentWindow.document;
+                        const restoreBtn = doc && doc.getElementById(':1.restore');
+                        if (restoreBtn) {
+                            restoreBtn.click();
+                            return true;
+                        }
+                    } catch (e) { }
+                }
+                return false;
+            }
+
+            function dispatchComboLanguage(combo, lang) {
+                combo.value = lang;
+                combo.dispatchEvent(new Event('change', { bubbles: true }));
+                if (combo.value !== lang) {
+                    combo.value = lang;
+                    combo.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            }
+
+            function triggerGoogleTranslate(lang) {
+                setGoogleTransCookie(lang);
+                localStorage.setItem('andhra_kisan_lang', lang);
+                applyLanguageUI(lang);
+
+                if (lang === 'en') {
+                    // Restore exact original English DOM; if native restore frame isn't accessible, refresh tab
+                    const restored = restoreOriginalEnglish();
+                    if (!restored) {
+                        window.location.reload();
+                    }
+                    return;
+                }
+
+                const combo = document.querySelector('.goog-te-combo');
+                if (combo && combo.options && combo.options.length > 1) {
+                    dispatchComboLanguage(combo, lang);
+                } else {
+                    let waitCount = 0;
+                    const waitTimer = setInterval(() => {
+                        waitCount++;
+                        const readyCombo = document.querySelector('.goog-te-combo');
+                        if (readyCombo && readyCombo.options && readyCombo.options.length > 1) {
+                            clearInterval(waitTimer);
+                            dispatchComboLanguage(readyCombo, lang);
+                        } else if (waitCount > 20) {
+                            clearInterval(waitTimer);
+                            window.location.reload();
+                        }
+                    }, 100);
+                }
+            }
+
+            if (langBtnEn) {
+                langBtnEn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!langBtnEn.classList.contains('active')) {
+                        triggerGoogleTranslate('en');
+                    }
+                });
+            }
+
+            if (langBtnTe) {
+                langBtnTe.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    if (!langBtnTe.classList.contains('active')) {
+                        triggerGoogleTranslate('te');
+                    }
+                });
+            }
+
+            // Sync state on page load
+            const savedLang = localStorage.getItem('andhra_kisan_lang');
+            const transCookie = getCookie('googtrans');
+            const isTelugu = (savedLang === 'te') || (transCookie && transCookie.includes('/te'));
+
+            if (isTelugu) {
+                applyLanguageUI('te');
+                // Only sync combo on initial load if Telugu was saved and not yet active
+                let checkAttempts = 0;
+                const comboPoll = setInterval(() => {
+                    checkAttempts++;
+                    const combo = document.querySelector('.goog-te-combo');
+                    if (combo && combo.options && combo.options.length > 1) {
+                        if (combo.value !== 'te') {
+                            dispatchComboLanguage(combo, 'te');
+                        }
+                        clearInterval(comboPoll);
+                    }
+                    if (checkAttempts > 25) clearInterval(comboPoll);
+                }, 200);
+            } else {
+                applyLanguageUI('en');
+            }
+        })();
+    </script>
+    <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+</body>
+
+</html>
